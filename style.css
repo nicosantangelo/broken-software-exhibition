@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a0a;
+  color: #e0e0e0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  padding: 3rem 2rem 2rem;
+  max-width: 600px;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  /*text-transform: uppercase;*/
+}
+
+.tagline {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 2rem 4rem;
+  gap: 2.5rem;
+}
+
+.exhibit {
+  width: calc(33.333% - 1.7rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.exhibit img {
+  width: 100%;
+  display: block;
+  border: 1px solid #1a1a1a;
+}
+
+.placard {
+  padding: 1rem 0;
+  border-top: 1px solid #222;
+  margin-top: 0.75rem;
+}
+
+.placard .title {
+  font-size: 0.95rem;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 0.3rem;
+}
+
+.placard .meta {
+  font-size: 0.75rem;
+  color: #555;
+  margin-top: 0.4rem;
+}
+
+.placard .description {
+  font-size: 0.8rem;
+  color: #888;
+  line-height: 1.5;
+}
+
+/* Video exhibits */
+
+.exhibit-media {
+  position: relative;
+  cursor: default;
+}
+
+.exhibit-media.is-video {
+  cursor: pointer;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+  pointer-events: none;
+}
+
+.exhibit-media.is-video:hover .play-button {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.play-button svg {
+  width: 20px;
+  height: 20px;
+  fill: rgba(255, 255, 255, 0.8);
+  margin-left: 3px;
+}
+
+/* Modal */
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
+.modal-content video {
+  max-width: 80vw;
+  max-height: 80vh;
+  display: block;
+  background: #000;
+}
+
+@media (max-width: 900px) {
+  .exhibit {
+    width: calc(50% - 1.25rem);
+  }
+}
+
+@media (max-width: 560px) {
+  header {
+    padding: 2rem 1.5rem 1.5rem;
+  }
+
+  #gallery {
+    padding: 1rem 1.5rem 3rem;
+    gap: 2rem;
+  }
+
+  .exhibit {
+    width: 100%;
+  }
+}

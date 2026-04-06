@@ -1,0 +1,79 @@
+[
+  {
+    "file": "COIN-nadasaq.png",
+    "title": "Nadasaq prices",
+    "date": "April 2021",
+    "author": "",
+    "description": "Percentages are hard"
+  },
+  {
+    "file": "Hospital Italiano.mov",
+    "title": "Hospital",
+    "date": "June 2020",
+    "author": "Website",
+    "description": "I think they might be using Java",
+    "type": "video"
+  },
+  {
+    "file": "MeLi-venta.mov",
+    "title": "Selling form",
+    "date": "June 2021",
+    "author": "MercadoLibre",
+    "description": "What a lovely dancing footer that is",
+    "type": "video"
+  },
+  {
+    "file": "Notes-app-cursor-madness.mov",
+    "title": "Drunk text editor",
+    "date": "July 2019",
+    "author": "Notes.app",
+    "description": "The cursor is a notoriously hard to implement feature",
+    "type": "video"
+  },
+  {
+    "file": "Telegram-text-bug.mov",
+    "title": "Flying typing",
+    "date": "May 2023",
+    "author": "Telegram",
+    "description": "It's more dynamic this way",
+    "type": "video"
+  },
+  {
+    "file": "aave-ipfs.png",
+    "title": "Too many logs",
+    "date": "November 2023",
+    "author": "AAVE",
+    "description": "Is a wonder intergalactic files work at all"
+  },
+  {
+    "file": "aerolineas-argentinas.mov",
+    "title": "Reactive flying",
+    "date": "February 2023",
+    "author": "Aerolineas Argentinas",
+    "description": "At least you have the invariant number",
+    "type": "video"
+  },
+  {
+    "file": "aerolineas-broken-flight.jpeg",
+    "title": "Error mamushka",
+    "date": "October 2021",
+    "author": "Aerolineas Argentinas",
+    "description": "At least they are honest about it",
+    "starred": true,
+  },
+  {
+    "file": "afip-error copy.png",
+    "title": "Processing failed",
+    "date": "July 2024",
+    "author": "AFIP",
+    "description": "Someone mistook innerText with innerHTML"
+  },
+  {
+    "file": "afip-form.mov",
+    "title": "Error modal",
+    "date": "November 2020",
+    "author": "AFIP",
+    "description": "I love to see half of the source of an error, very useful",
+    "type": "video"
+  }
+]
