@@ -32,6 +32,42 @@ header h1 {
   line-height: 1.6;
 }
 
+.sort-controls {
+  padding: 0 2rem 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sort-label {
+  font-size: 0.7rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+}
+
+.sort-btn {
+  background: none;
+  border: 1px solid #222;
+  color: #555;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.sort-btn:hover {
+  color: #aaa;
+  border-color: #444;
+}
+
+.sort-btn.active {
+  color: #ddd;
+  border-color: #555;
+}
+
 #gallery {
   display: flex;
   flex-wrap: wrap;
@@ -65,9 +101,10 @@ header h1 {
 }
 
 .placard .meta {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: #555;
   margin-top: 0.4rem;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
 }
 
 .placard .description {
@@ -87,6 +124,18 @@ header h1 {
   cursor: pointer;
 }
 
+.exhibit-media.is-video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  transition: background 0.2s;
+}
+
+.exhibit-media.is-video:hover::after {
+  background: rgba(0, 0, 0, 0.55);
+}
+
 .play-button {
   position: absolute;
   top: 50%;
@@ -104,6 +153,7 @@ header h1 {
     background 0.2s,
     border-color 0.2s;
   pointer-events: none;
+  z-index: 1;
 }
 
 .exhibit-media.is-video:hover .play-button {

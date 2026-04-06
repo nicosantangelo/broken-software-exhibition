@@ -59,7 +59,7 @@
     "date": "October 2021",
     "author": "Aerolineas Argentinas",
     "description": "At least they are honest about it",
-    "starred": true,
+    "starred": true
   },
   {
     "file": "afip-error copy.png",
@@ -75,5 +75,93 @@
     "author": "AFIP",
     "description": "I love to see half of the source of an error, very useful",
     "type": "video"
+  },
+  {
+    "file": "air-europa-flight.jpg",
+    "title": "Very...cold?",
+    "date": "May 2019",
+    "author": "Air Europa",
+    "description": "NaN idea",
+    "starred": false
+  },
+  {
+    "file": "bank-usa.jpeg",
+    "title": "Bootn't",
+    "date": "October 2019",
+    "author": "USA Airport",
+    "description": "Who uses discs anymore?",
+    "starred": false
+  },
+  {
+    "file": "basic-fit-screen.png",
+    "title": "Critical",
+    "date": "May 2019",
+    "author": "Basic-Fit",
+    "description": "Thank god for player",
+    "starred": false
+  },
+  {
+    "file": "bbva-null.jpg",
+    "title": "Void",
+    "date": "July 2021",
+    "author": "BBVA",
+    "description": "Next level privacy",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "cablevision-http-err.png",
+    "title": "Broken cable",
+    "date": "October 2020",
+    "author": "Fibertel",
+    "description": "Probably exceptions can live outside of utils",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "caja-de-ahorro-frances.png",
+    "title": "Void 2",
+    "date": "September 2019",
+    "author": "BBVA",
+    "description": "Again with the privacy features, great service",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "cardiogram-email.jpeg",
+    "title": "Templating",
+    "date": "June 2022",
+    "author": "Cardiogram",
+    "description": "That default there is not doing it's job",
+    "starred": false,
+    "to_edit": true
+  },
+  {
+    "file": "circle-ci-workflows.png",
+    "title": "Null triplets",
+    "date": "July 2019",
+    "author": "Circle CI",
+    "description": "A simple null can't stop circle",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "compare-defi-graphs.mov",
+    "title": "Finances",
+    "date": "February 2021",
+    "author": "Defiscore",
+    "description": "Aw yes, NOW I understand",
+    "starred": true,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "culture-amp-double.png",
+    "title": "Repetition",
+    "date": "\"Engagement Survey Q3-Q4 2021\"",
+    "author": "Culture Amp",
+    "description": "This will allow you to complete the \"Engagement Survey Q3-Q4 2021\" survey again.",
+    "starred": false,
+    "to_edit": false
   }
 ]

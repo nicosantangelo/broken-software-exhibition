@@ -1,9 +1,36 @@
 let exhibits = [];
 
+const MONTHS = {
+  january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
+  july: 6, august: 7, september: 8, october: 9, november: 10, december: 11,
+};
+
+function parseDate(str) {
+  if (!str) return 0;
+  const parts = str.toLowerCase().split(" ");
+  const month = MONTHS[parts[0]] || 0;
+  const year = parseInt(parts[1]) || 0;
+  return year * 12 + month;
+}
+
+function sortExhibits(field, dir) {
+  exhibits.sort((a, b) => {
+    let cmp;
+    if (field === "date") {
+      cmp = parseDate(a.date) - parseDate(b.date);
+    } else {
+      cmp = (a[field] || "").localeCompare(b[field] || "");
+    }
+    return dir === "desc" ? -cmp : cmp;
+  });
+  renderGallery();
+}
+
 const playIcon = `<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>`;
 
 function renderGallery() {
   const gallery = document.getElementById("gallery");
+  gallery.innerHTML = "";
 
   exhibits.forEach((exhibit) => {
     const card = document.createElement("div");
@@ -62,6 +89,28 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeModal();
 });
 
+document.querySelectorAll(".sort-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const field = btn.dataset.sort;
+    let dir = btn.dataset.dir;
+
+    // If already active, toggle direction
+    if (btn.classList.contains("active")) {
+      dir = dir === "asc" ? "desc" : "asc";
+      btn.dataset.dir = dir;
+    }
+
+    // Update button labels
+    document.querySelectorAll(".sort-btn").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    const arrow = dir === "asc" ? "↑" : "↓";
+    const label = field.charAt(0).toUpperCase() + field.slice(1);
+    btn.textContent = `${label} ${arrow}`;
+
+    sortExhibits(field, dir);
+  });
+});
+
 fetch("exhibits.json")
   .then((res) => res.json())
   .then((data) => {
@@ -77,5 +126,5 @@ fetch("exhibits.json")
         ...(isVideo ? { type: "video", video: `assets/${item.file}` } : {}),
       });
     });
-    renderGallery();
+    sortExhibits("date", "desc");
   });
