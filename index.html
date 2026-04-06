@@ -3,26 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Broken Software Exhibition</title>
+    <title>The broken software exhibition</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <h1>The Broken Software Exhibition</h1>
+      <h1>The broken software exhibition</h1>
       <p class="tagline">A curated collection of digital misfortune.</p>
     </header>
     <div class="sort-controls">
       <span class="sort-label">Sort by</span>
-      <button class="sort-btn active" data-sort="date" data-dir="desc">Date ↓</button>
-      <button class="sort-btn" data-sort="author" data-dir="asc">Author ↑</button>
+      <button class="sort-btn active" data-sort="date" data-dir="desc">
+        Date ↓
+      </button>
+      <button class="sort-btn" data-sort="author" data-dir="asc">
+        Author ↑
+      </button>
     </div>
     <main id="gallery"></main>
     <div id="modal" class="modal">
       <div class="modal-content">
-        <img id="modal-image" style="display:none">
-        <video id="modal-video" controls style="display:none"></video>
+        <img id="modal-image" style="display: none" />
+        <video id="modal-video" controls style="display: none"></video>
       </div>
     </div>
+    <footer>
+      <p>At least with AI this won't ever happen again, right?</p>
+      <p>Built by <a href="https://nicosantangelo.com">nicosantangelo</a></p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

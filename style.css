@@ -21,14 +21,14 @@ header h1 {
   font-weight: 300;
   letter-spacing: 0.04em;
   color: #ffffff;
-  /*text-transform: uppercase;*/
+  font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+  text-transform: uppercase;
 }
 
 .tagline {
   margin-top: 0.4rem;
   font-size: 0.85rem;
   color: #666;
-  font-style: italic;
   line-height: 1.6;
 }
 
@@ -55,7 +55,9 @@ header h1 {
   padding: 0.25rem 0.6rem;
   cursor: pointer;
   font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
-  transition: color 0.15s, border-color 0.15s;
+  transition:
+    color 0.15s,
+    border-color 0.15s;
 }
 
 .sort-btn:hover {
@@ -102,8 +104,6 @@ header h1 {
 
 .placard {
   padding: 1rem 0;
-  border-top: 1px solid #222;
-  margin-top: 0.75rem;
 }
 
 .placard .title {
@@ -203,6 +203,25 @@ header h1 {
   max-height: 80vh;
   display: block;
   background: #000;
+}
+
+footer {
+  margin-top: 1.5rem;
+  padding: 1.5rem 2rem 2rem;
+  font-family: "SF Mono", "Fira Code", "Fira Mono", Menlo, Consolas, monospace;
+  font-size: 0.7rem;
+  color: #444;
+  line-height: 2;
+  border-top: 1px solid #222;
+}
+
+footer a {
+  color: #666;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #999;
 }
 
 @media (max-width: 900px) {

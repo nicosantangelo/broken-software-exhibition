@@ -66,7 +66,7 @@
     "title": "Processing failed",
     "date": "July 2024",
     "author": "AFIP",
-    "description": "Someone mistook innerText with innerHTML"
+    "description": "Someone mistook innerText for innerHTML"
   },
   {
     "file": "afip-form.mov",
@@ -160,7 +160,7 @@
     "title": "Repetition",
     "date": "\"Engagement Survey Q3-Q4 2021\"",
     "author": "Culture Amp",
-    "description": "This will allow you to complete the \"Engagement Survey Q3-Q4 2021\" survey again.",
+    "description": "This will allow you to complete the \"Engagement Survey Q3-Q4 2021\" survey again",
     "starred": false,
     "to_edit": false
   }
