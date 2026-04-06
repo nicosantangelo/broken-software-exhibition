@@ -81,10 +81,23 @@ header h1 {
   flex-direction: column;
 }
 
-.exhibit img {
-  width: 100%;
-  display: block;
+.exhibit-media {
+  aspect-ratio: 4 / 3;
+  background: #0f0f0f;
   border: 1px solid #1a1a1a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.exhibit-media img,
+.exhibit-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .placard {
@@ -117,11 +130,6 @@ header h1 {
 
 .exhibit-media {
   position: relative;
-  cursor: default;
-}
-
-.exhibit-media.is-video {
-  cursor: pointer;
 }
 
 .exhibit-media.is-video::after {
@@ -189,6 +197,7 @@ header h1 {
   max-height: 80vh;
 }
 
+.modal-content img,
 .modal-content video {
   max-width: 80vw;
   max-height: 80vh;

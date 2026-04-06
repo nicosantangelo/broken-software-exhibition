@@ -38,7 +38,7 @@ function renderGallery() {
     const isVideo = exhibit.type === "video";
 
     const mediaContent = isVideo
-      ? `<video src="${exhibit.video}" muted preload="metadata" style="width:100%;display:block;border:1px solid #1a1a1a;"></video>`
+      ? `<video src="${exhibit.video}" muted preload="metadata"></video>`
       : `<img src="${exhibit.image}" alt="${exhibit.title}">`;
 
     const meta = [exhibit.author, exhibit.date].filter(Boolean).join(", ");
@@ -55,29 +55,46 @@ function renderGallery() {
       </div>
     `;
 
-    if (isVideo) {
-      card.querySelector(".exhibit-media").addEventListener("click", () => {
-        openModal(exhibit.video);
-      });
-    }
+    card.querySelector(".exhibit-media").addEventListener("click", () => {
+      if (isVideo) {
+        openModal("video", exhibit.video);
+      } else {
+        openModal("image", exhibit.image);
+      }
+    });
 
     gallery.appendChild(card);
   });
 }
 
-function openModal(videoSrc) {
+function openModal(type, src) {
   const modal = document.getElementById("modal");
+  const image = document.getElementById("modal-image");
   const video = document.getElementById("modal-video");
-  video.src = videoSrc;
+
+  if (type === "video") {
+    image.style.display = "none";
+    video.style.display = "block";
+    video.src = src;
+    video.play();
+  } else {
+    video.style.display = "none";
+    image.style.display = "block";
+    image.src = src;
+  }
+
   modal.classList.add("active");
-  video.play();
 }
 
 function closeModal() {
   const modal = document.getElementById("modal");
+  const image = document.getElementById("modal-image");
   const video = document.getElementById("modal-video");
   video.pause();
   video.src = "";
+  video.style.display = "none";
+  image.src = "";
+  image.style.display = "none";
   modal.classList.remove("active");
 }
 
