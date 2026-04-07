@@ -15,35 +15,39 @@ const MONTHS = {
   december: 11,
 };
 
-function parseDate(str) {
-  if (!str) return 0;
-  const parts = str.toLowerCase().split(" ");
+function parseDate(dateString) {
+  if (!dateString) return 0;
+
+  const parts = dateString.toLowerCase().split(" ");
   const month = MONTHS[parts[0]] || 0;
   const year = parseInt(parts[1]) || 0;
+
   return year * 12 + month;
 }
 
-function sortExhibits(field, dir) {
+function sortExhibits(field, direction) {
   exhibits.sort((a, b) => {
-    let cmp;
+    let comparison;
+
     if (field === "favorite") {
-      cmp =
-        a.starred === b.starred
-          ? parseDate(a.date) - parseDate(b.date)
-          : a.starred
-            ? 1
-            : -1;
+      if (a.starred === b.starred) {
+        comparison = parseDate(a.date) - parseDate(b.date);
+      } else {
+        comparison = a.starred ? 1 : -1;
+      }
     } else if (field === "date") {
-      cmp = parseDate(a.date) - parseDate(b.date);
+      comparison = parseDate(a.date) - parseDate(b.date);
     } else {
-      cmp = (a[field] || "").localeCompare(b[field] || "");
+      comparison = (a[field] || "").localeCompare(b[field] || "");
     }
-    return dir === "desc" ? -cmp : cmp;
+
+    return direction === "desc" ? -comparison : comparison;
   });
+
   renderGallery();
 }
 
-const playIcon = `<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>`;
+const PLAY_ICON = `<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>`;
 
 function renderGallery() {
   const gallery = document.getElementById("gallery");
@@ -63,7 +67,7 @@ function renderGallery() {
     card.innerHTML = `
       <div class="exhibit-media${isVideo ? " is-video" : ""}">
         ${mediaContent}
-        ${isVideo ? `<div class="play-button">${playIcon}</div>` : ""}
+        ${isVideo ? `<div class="play-button">${PLAY_ICON}</div>` : ""}
       </div>
       <div class="placard">
         <div class="title-row">
@@ -87,7 +91,7 @@ function renderGallery() {
   }
 }
 
-function openModal(type, src) {
+function openModal(type, source) {
   const modal = document.getElementById("modal");
   const image = document.getElementById("modal-image");
   const video = document.getElementById("modal-video");
@@ -95,12 +99,12 @@ function openModal(type, src) {
   if (type === "video") {
     image.style.display = "none";
     video.style.display = "block";
-    video.src = src;
+    video.src = source;
     video.play();
   } else {
     video.style.display = "none";
     image.style.display = "block";
-    image.src = src;
+    image.src = source;
   }
 
   modal.classList.add("active");
@@ -110,6 +114,7 @@ function closeModal() {
   const modal = document.getElementById("modal");
   const image = document.getElementById("modal-image");
   const video = document.getElementById("modal-video");
+
   video.pause();
   video.src = "";
   video.style.display = "none";
@@ -118,47 +123,49 @@ function closeModal() {
   modal.classList.remove("active");
 }
 
-document.getElementById("modal").addEventListener("click", (e) => {
-  if (e.target === e.currentTarget) closeModal();
+document.getElementById("modal").addEventListener("click", (event) => {
+  if (event.target === event.currentTarget) closeModal();
 });
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeModal();
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") closeModal();
 });
 
-for (const btn of document.querySelectorAll(".sort-btn")) {
-  btn.addEventListener("click", () => {
-    const field = btn.dataset.sort;
-    let dir = btn.dataset.dir;
+for (const button of document.querySelectorAll(".sort-btn")) {
+  button.addEventListener("click", () => {
+    const field = button.dataset.sort;
+    let direction = button.dataset.dir;
 
     if (field === "favorite") {
-      if (btn.classList.contains("active")) return;
-    } else if (btn.classList.contains("active")) {
-      dir = dir === "asc" ? "desc" : "asc";
-      btn.dataset.dir = dir;
+      if (button.classList.contains("active")) return;
+    } else if (button.classList.contains("active")) {
+      direction = direction === "asc" ? "desc" : "asc";
+      button.dataset.dir = direction;
     }
 
-    for (const b of document.querySelectorAll(".sort-btn")) {
-      b.classList.remove("active");
+    for (const sortButton of document.querySelectorAll(".sort-btn")) {
+      sortButton.classList.remove("active");
     }
 
-    btn.classList.add("active");
+    button.classList.add("active");
+
     if (field !== "favorite") {
-      const arrow = dir === "asc" ? "↑" : "↓";
+      const arrow = direction === "asc" ? "↑" : "↓";
       const label = field.charAt(0).toUpperCase() + field.slice(1);
-      btn.textContent = `${label} ${arrow}`;
+      button.textContent = `${label} ${arrow}`;
     }
 
-    sortExhibits(field, dir);
+    sortExhibits(field, direction);
   });
 }
 
 fetch("exhibits.json")
-  .then((res) => res.json())
+  .then((response) => response.json())
   .then((data) => {
     for (const item of data) {
-      const ext = item.file.split(".").pop().toLowerCase();
-      const isVideo = ["mp4", "mov", "webm"].includes(ext);
+      const extension = item.file.split(".").pop().toLowerCase();
+      const isVideo = ["mp4", "mov", "webm"].includes(extension);
+
       exhibits.push({
         image: `assets/${item.file}`,
         title: item.title || item.file,
