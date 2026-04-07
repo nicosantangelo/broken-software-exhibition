@@ -163,5 +163,539 @@
     "description": "This will allow you to complete the \"Engagement Survey Q3-Q4 2021\" survey again",
     "starred": false,
     "to_edit": false
+  },
+  {
+    "file": "culture-amp-nan.png",
+    "title": "Engagement",
+    "date": "March 2022",
+    "author": "Culture Amp",
+    "description": "Saying people are not a number, bold statement",
+    "starred": false,
+    "to_edit": true
+  },
+  {
+    "file": "disney-park.jpeg",
+    "title": "exhibits.disney.title",
+    "date": "December 2022",
+    "author": "Disney",
+    "description": "When I18n goes rogue",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "duckduckgo-serach.png",
+    "title": "Prototype",
+    "date": "January 2022",
+    "author": "DuckDuckGo",
+    "description": "[object Object]",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "feedly.jpeg",
+    "title": "Source code",
+    "date": "March 2022",
+    "author": "Feedly",
+    "description": "At least the html title is useful",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "github-broken-details.mov",
+    "title": "Hidden trashcan",
+    "date": "August 2022",
+    "author": "Github",
+    "description": "Careful where you click",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "github-broken-diff.mov",
+    "title": "Review comment²",
+    "date": "November 2021",
+    "author": "Github",
+    "description": "Testing out the pair PR review",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "github-comments.mov",
+    "title": "State",
+    "date": "November 2021",
+    "author": "Github",
+    "description": "I get it, the history API likes to play hard to get",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "github-css.png",
+    "title": "Scroll",
+    "date": "April 2019",
+    "author": "Github",
+    "description": "Nobody could've forseen that many reactions",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "github-styles.png",
+    "title": "Overlays",
+    "date": "May 2019",
+    "author": "Github",
+    "description": "z-index am I right?",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "gmail-autocomplete.mov",
+    "title": "El dom",
+    "date": "July 2019",
+    "author": "Gmail",
+    "description": "I swear \"El dom\" didn't make sense in this context",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "google-photos-empty-placeholder.mov",
+    "title": "Placeholder",
+    "date": "July 2019",
+    "author": "Google",
+    "description": "Happens to the best of us",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "google-search.png",
+    "title": "null",
+    "date": "February 2022",
+    "author": "Google",
+    "description": "Anybody knows how to do SEO?",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "google-translate-wat.png",
+    "title": "Censored",
+    "date": "May 2019",
+    "author": "GoogleTranslate",
+    "description": "That's...hum. Not right",
+    "starred": true,
+    "to_edit": false
+  },
+  {
+    "file": "hbomax.jpeg",
+    "title": "Streaming",
+    "date": "February 2023",
+    "author": "HBOMax",
+    "description": "THATS_A_GOOD_ERROR_MESSAGE_AT_LEAST",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "hotjar-get-started.mov",
+    "title": "Jumpscare",
+    "date": "September 2019",
+    "author": "Hotjar",
+    "description": "Bet you were not expecting that",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "jampp-scrolling.mp4",
+    "title": "Overflow",
+    "date": "May 2019",
+    "author": "Jampp",
+    "description": "Who scrolls to the right anyways?",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "lisboa-undefined-gates.jpeg",
+    "title": "Best gate",
+    "date": "May 2019",
+    "author": "Lisboa",
+    "description": "Do you get down? nah I go till 'NaN' Gates",
+    "starred": true,
+    "to_edit": false
+  },
+  {
+    "file": "macos-audio-broken.png",
+    "title": "Sounds bad",
+    "date": "December 2020",
+    "author": "macOS",
+    "description": "I miss the old design",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "mc-donalds-buenos-aires.jpeg",
+    "title": "67",
+    "date": "July 2019",
+    "author": "McDonalds",
+    "description": "Maybe they R8888 was intended, but this image is great regardless",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "meli-roto.png",
+    "title": "Overflow",
+    "date": "February 2022",
+    "author": "MercadoLibre",
+    "description": "Once again, content not wanting to stay put",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "meli1.jpeg",
+    "title": "Bobby tables",
+    "date": "September 2020",
+    "author": "MercadoLibre",
+    "description": "Don't you dare breaking my database",
+    "starred": false,
+    "to_edit": true
+  },
+  {
+    "file": "meli2.mov",
+    "title": "Mini game",
+    "date": "September 2020",
+    "author": "MercadoLibre",
+    "description": "Looks kinda fun, feels awful",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "menudigital.png",
+    "title": "undefined",
+    "date": "October 2022",
+    "author": "MenuDigital",
+    "description": "undefined I think the site is down now undefined",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "metamask-nan.png",
+    "title": "Shame",
+    "date": "May 2019",
+    "author": "Metamask",
+    "description": "Not even the mascot wants to look",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "microsoft-broken-sign-in.png",
+    "title": "Method",
+    "date": "June 2022",
+    "author": "Microsoft",
+    "description": "Thanks for letting me know, but I swear I didn't mean it",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "mijn-overheid-symphony-error.png",
+    "title": "php",
+    "date": "September 2019",
+    "author": "Mijn Overheid",
+    "description": "Symfony! it's been a minute",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "monotributo-roto.png",
+    "title": "Currency devaluation",
+    "date": "February 2025",
+    "author": "AFIP",
+    "description": "Who can keep up?",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "mtg-arena-placeholder.png",
+    "title": "Waldo",
+    "date": "October 2020",
+    "author": "Magic: The Gathering Arena",
+    "description": "Did you catch it?",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "nintendo-argentina.mov",
+    "title": "No storage",
+    "date": "April 2019",
+    "author": "Nintendo",
+    "description": "This one is probably my fault, but still man",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "node-null.jpeg",
+    "title": "N'Sync",
+    "date": "October 2024",
+    "author": "Ethereum Node",
+    "description": "I always name my nodes { name: \"node\" }",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "notes-app-search.mov",
+    "title": "Drunk",
+    "date": "May 2019",
+    "author": "Notes.app",
+    "description": "I can't even begin to joke about what's going on here",
+    "starred": true,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "now-grande-rauch.mov",
+    "title": "Stubborn",
+    "date": "May 2019",
+    "author": "Zeit (then Now.sh)",
+    "description": "That's clearly not an option, just a statement",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "postnet.jpeg",
+    "title": "Truthy or Falsy",
+    "date": "March 2026",
+    "author": "Postnet",
+    "description": "These things wouldn't happen in Javascript",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "rapi-SQL.jpeg",
+    "title": "Reverse SQLInjection",
+    "date": "June 2019",
+    "author": "Rappi",
+    "description": "Nothing worse than mixing languages for alias names. The leaked SQL too i guess",
+    "starred": true,
+    "to_edit": false
+  },
+  {
+    "file": "react-docs-site.mov",
+    "title": "Basic example",
+    "date": "January 2024",
+    "author": "Redux Toolkit",
+    "description": "Okay, that's interesting...",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "reminders-suggested-time.png",
+    "title": "Concept of time",
+    "date": "April 2023",
+    "author": "Reminders.app",
+    "description": "To their credit, it says \"Suggested\", not \"Found\"",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "shabu-amsterdam.jpeg",
+    "title": "Blue",
+    "date": "October 2019",
+    "author": "Shabu Shabu",
+    "description": "Is that XP? respect",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "slack-broken-threads.mov",
+    "title": "Forced upload",
+    "date": "July 2019",
+    "author": "Slack",
+    "description": "Probably my fault by drag and not dropping",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "slack-loading.png",
+    "title": "Friends",
+    "date": "May 2019",
+    "author": "Slack",
+    "description": "I like the black hole at the bottom",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "slack-quick-search.mov",
+    "title": "Convinient",
+    "date": "April 2019",
+    "author": "Slack",
+    "description": "Saving pixels",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "spinners-vscode.mov",
+    "title": "Loading",
+    "date": "August 2024",
+    "author": "VSCode",
+    "description": "There's something endlessly funny about multiple spinners",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "steam-localstorage.png",
+    "title": "No storage 2",
+    "date": "May 2020",
+    "author": "Steam",
+    "description": "Again, probably my fault, but you can at least check",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "tcba-turnos.mov",
+    "title": "Don't forget me",
+    "date": "August 2021",
+    "author": "TCba",
+    "description": "Are they...saving users in txt files?!",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "telegram-ram.png",
+    "title": "Chrome stop i...oh",
+    "date": "October 2022",
+    "author": "Telegram",
+    "description": "Yes, that's 94GB with a G",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "thuisbezorgd-nulltoken.jpeg",
+    "title": "Expected expiration",
+    "date": "July 2019",
+    "author": "Thuis Bezorgd",
+    "description": "If it wasn't for the Error title, I'd think this is a success message",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "touchbar-broken.MOV",
+    "title": "Don't touch",
+    "date": "May 2019",
+    "author": "Haptic Touch Bar",
+    "description": "Honestly, I wasn't using it anyways",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "touchbar-inconsistent-2.mov",
+    "title": "Don't touch 2",
+    "date": "May 2019",
+    "author": "Touch Bar",
+    "description": "Always a joy to use",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "train-in-granada.jpg",
+    "title": "Blue screen",
+    "date": "May 2019",
+    "author": "Granada",
+    "description": "Don't let the first screen distract you from the other 5",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "vs-code-terminated.mov",
+    "title": "Lies",
+    "date": "May 2023",
+    "author": "VSCode",
+    "description": "That description is only giving me empty hope",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "whatsapp-without-text.jpg",
+    "title": "Redacted",
+    "date": "October 2018",
+    "author": "Whastapp",
+    "description": "Phone photo for authenticity",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "windows-embeded-ezeiza.jpg",
+    "title": "Embed",
+    "date": "September 2018",
+    "author": "Ezeiza Airport",
+    "description": "A shame the dialog wasn't centered",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "wise-error.jpg",
+    "title": "No props",
+    "date": "January 2022",
+    "author": "Wise",
+    "description": "A new spin in the \"i18n key missing\" saga",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "workflowy.png",
+    "title": "CRT",
+    "date": "May 2021",
+    "author": "Workflowy",
+    "description": "There was a time where Electron apps really wanted to glitch like this. I miss it",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "youtube-null.jpg",
+    "title": "Repetition",
+    "date": "January 2026",
+    "author": "Youtube",
+    "description": "It reads like a scolding somehow",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "zenhub-below-fold.mov",
+    "title": "Appended",
+    "date": "March 2022",
+    "author": "Zenhub",
+    "description": "Hijacking websites is always a fun ordeal",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "zoom-mic-null.jpeg",
+    "title": "Muted",
+    "date": "January 2023",
+    "author": "Zoom",
+    "description": "I always name my mics null, sometimes undefined if i'm feeling spicy",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "zoom-update.mov",
+    "title": "Outdated",
+    "date": "February 2020",
+    "author": "Zoom",
+    "description": "You are good enough as you are",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
   }
 ]

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The broken software exhibition</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -19,6 +20,9 @@
       <button class="sort-btn" data-sort="author" data-dir="asc">
         Author ↑
       </button>
+      <button class="sort-btn" data-sort="favorite" data-dir="desc">
+        Favorite ★
+      </button>
     </div>
     <main id="gallery"></main>
     <div id="modal" class="modal">
@@ -29,6 +33,10 @@
     </div>
     <footer>
       <p>At least with AI this won't ever happen again, right?</p>
+      <p>
+        Have something to exhibit?
+        <a href="mailto:fillthislater@gmail.com">Send it over</a>
+      </p>
       <p>Built by <a href="https://nicosantangelo.com">nicosantangelo</a></p>
     </footer>
     <script src="script.js"></script>

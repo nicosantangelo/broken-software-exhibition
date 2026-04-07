@@ -1,8 +1,18 @@
 let exhibits = [];
 
 const MONTHS = {
-  january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
-  july: 6, august: 7, september: 8, october: 9, november: 10, december: 11,
+  january: 0,
+  february: 1,
+  march: 2,
+  april: 3,
+  may: 4,
+  june: 5,
+  july: 6,
+  august: 7,
+  september: 8,
+  october: 9,
+  november: 10,
+  december: 11,
 };
 
 function parseDate(str) {
@@ -16,7 +26,14 @@ function parseDate(str) {
 function sortExhibits(field, dir) {
   exhibits.sort((a, b) => {
     let cmp;
-    if (field === "date") {
+    if (field === "favorite") {
+      cmp =
+        a.starred === b.starred
+          ? parseDate(a.date) - parseDate(b.date)
+          : a.starred
+            ? 1
+            : -1;
+    } else if (field === "date") {
       cmp = parseDate(a.date) - parseDate(b.date);
     } else {
       cmp = (a[field] || "").localeCompare(b[field] || "");
@@ -32,7 +49,7 @@ function renderGallery() {
   const gallery = document.getElementById("gallery");
   gallery.innerHTML = "";
 
-  exhibits.forEach((exhibit) => {
+  for (const exhibit of exhibits) {
     const card = document.createElement("div");
     card.className = "exhibit";
     const isVideo = exhibit.type === "video";
@@ -49,7 +66,10 @@ function renderGallery() {
         ${isVideo ? `<div class="play-button">${playIcon}</div>` : ""}
       </div>
       <div class="placard">
-        <div class="title">${exhibit.title}</div>
+        <div class="title-row">
+          <span class="title">${exhibit.title}</span>
+          ${exhibit.starred ? `<span class="star-icon">★</span>` : ""}
+        </div>
         <div class="description">${exhibit.description}</div>
         ${meta ? `<div class="meta">${meta}</div>` : ""}
       </div>
@@ -64,7 +84,7 @@ function renderGallery() {
     });
 
     gallery.appendChild(card);
-  });
+  }
 }
 
 function openModal(type, src) {
@@ -106,32 +126,37 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeModal();
 });
 
-document.querySelectorAll(".sort-btn").forEach((btn) => {
+for (const btn of document.querySelectorAll(".sort-btn")) {
   btn.addEventListener("click", () => {
     const field = btn.dataset.sort;
     let dir = btn.dataset.dir;
 
-    // If already active, toggle direction
-    if (btn.classList.contains("active")) {
+    if (field === "favorite") {
+      if (btn.classList.contains("active")) return;
+    } else if (btn.classList.contains("active")) {
       dir = dir === "asc" ? "desc" : "asc";
       btn.dataset.dir = dir;
     }
 
-    // Update button labels
-    document.querySelectorAll(".sort-btn").forEach((b) => b.classList.remove("active"));
+    for (const b of document.querySelectorAll(".sort-btn")) {
+      b.classList.remove("active");
+    }
+
     btn.classList.add("active");
-    const arrow = dir === "asc" ? "↑" : "↓";
-    const label = field.charAt(0).toUpperCase() + field.slice(1);
-    btn.textContent = `${label} ${arrow}`;
+    if (field !== "favorite") {
+      const arrow = dir === "asc" ? "↑" : "↓";
+      const label = field.charAt(0).toUpperCase() + field.slice(1);
+      btn.textContent = `${label} ${arrow}`;
+    }
 
     sortExhibits(field, dir);
   });
-});
+}
 
 fetch("exhibits.json")
   .then((res) => res.json())
   .then((data) => {
-    data.forEach((item) => {
+    for (const item of data) {
       const ext = item.file.split(".").pop().toLowerCase();
       const isVideo = ["mp4", "mov", "webm"].includes(ext);
       exhibits.push({
@@ -140,8 +165,10 @@ fetch("exhibits.json")
         date: item.date || "",
         author: item.author || "",
         description: item.description || "",
+        starred: !!item.starred,
         ...(isVideo ? { type: "video", video: `assets/${item.file}` } : {}),
       });
-    });
+    }
+
     sortExhibits("date", "desc");
   });
