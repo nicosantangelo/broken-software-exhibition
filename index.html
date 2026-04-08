@@ -12,19 +12,26 @@
       <h1>Broken software exhibition</h1>
       <p class="tagline">A curated collection of digital misfortune.</p>
     </header>
-    <div class="sort-controls">
-      <span class="sort-label">Sort by</span>
-      <button class="sort-btn active" data-sort="date" data-dir="desc">
-        Date ↓
-      </button>
-      <button class="sort-btn" data-sort="author" data-dir="asc">
-        Author ↑
-      </button>
+
+    <div class="controls">
+      <div class="sort-controls">
+        <span class="control-label">Sort by</span>
+        <button class="sort-btn active" data-sort="date" data-dir="desc">
+          Date ↓
+        </button>
+        <button class="sort-btn" data-sort="author" data-dir="asc">
+          Author ↑
+        </button>
+      </div>
+      <div class="filter-row">
+        <div class="filter-controls">
+          <span class="control-label">Filter</span>
+          <button class="filter-btn" id="favorite-filter">Favorite ★</button>
+        </div>
+        <p class="control-label exhibit-count" id="exhibit-count"></p>
+      </div>
     </div>
-    <div class="filter-controls">
-      <span class="filter-label">Filter</span>
-      <button class="filter-btn" id="favorite-filter">★ Favorite</button>
-    </div>
+
     <main id="gallery"></main>
     <div id="modal" class="modal">
       <div class="modal-content">

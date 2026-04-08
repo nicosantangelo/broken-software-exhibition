@@ -163,7 +163,7 @@
     "author": "Cardiogram",
     "description": "That default there is not doing its job",
     "starred": false,
-    "to_edit": true
+    "to_edit": false
   },
   {
     "file": "cinque-terre-public-transport.jpg",
@@ -200,7 +200,7 @@
     "author": "Electron",
     "description": "I wish I could do this on purpose",
     "starred": false,
-    "to_edit": true,
+    "to_edit": false,
     "type": "video"
   },
   {
@@ -219,7 +219,7 @@
     "author": "Culture Amp",
     "description": "Saying people are not a number, bold statement",
     "starred": false,
-    "to_edit": true
+    "to_edit": false
   },
   {
     "file": "disney-park.jpeg",
@@ -291,7 +291,7 @@
     "author": "Florence",
     "description": "I am almost sure nobody even noticed",
     "starred": false,
-    "to_edit": true
+    "to_edit": false
   },
   {
     "file": "github-broken-details.mp4",
@@ -442,7 +442,7 @@
     "title": "Best gate",
     "date": "May 2019",
     "author": "Lisboa",
-    "description": "Do you get down? nah I go till 'NaN' Gates",
+    "description": "I like that they took the time to 'quote' that",
     "starred": true,
     "to_edit": false
   },
@@ -453,7 +453,7 @@
     "author": "Mac mini",
     "description": "Maybe the cable, maybe the software, every bit as fun",
     "starred": false,
-    "to_edit": true
+    "to_edit": false
   },
   {
     "file": "macos-audio-broken.png",
@@ -498,7 +498,7 @@
     "author": "MercadoLibre",
     "description": "Don't you dare breaking my database",
     "starred": false,
-    "to_edit": true
+    "to_edit": false
   },
   {
     "file": "meli2.mp4",
@@ -610,7 +610,7 @@
     "author": "Paris",
     "description": "Remember BIOS manufacturers?",
     "starred": false,
-    "to_edit": true
+    "to_edit": false
   },
   {
     "file": "postnet.jpeg",

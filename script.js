@@ -178,5 +178,6 @@ fetch("exhibits.json")
       });
     }
 
+    document.getElementById("exhibit-count").textContent = `Exhibiting ${exhibits.length} pieces`;
     sortExhibits("date", "desc");
   });
