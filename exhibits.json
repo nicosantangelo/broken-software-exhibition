@@ -7,7 +7,7 @@
     "description": "Percentages are hard"
   },
   {
-    "file": "Hospital Italiano.mov",
+    "file": "Hospital Italiano.mp4",
     "title": "Hospital",
     "date": "June 2020",
     "author": "Website",
@@ -15,7 +15,7 @@
     "type": "video"
   },
   {
-    "file": "MeLi-venta.mov",
+    "file": "MeLi-venta.mp4",
     "title": "Selling form",
     "date": "June 2021",
     "author": "MercadoLibre",
@@ -23,7 +23,7 @@
     "type": "video"
   },
   {
-    "file": "Notes-app-cursor-madness.mov",
+    "file": "Notes-app-cursor-madness.mp4",
     "title": "Drunk text editor",
     "date": "July 2019",
     "author": "Notes.app",
@@ -31,7 +31,7 @@
     "type": "video"
   },
   {
-    "file": "Telegram-text-bug.mov",
+    "file": "Telegram-text-bug.mp4",
     "title": "Flying typing",
     "date": "May 2023",
     "author": "Telegram",
@@ -43,10 +43,10 @@
     "title": "Too many logs",
     "date": "November 2023",
     "author": "AAVE",
-    "description": "Is a wonder intergalactic files work at all"
+    "description": "It's a wonder intergalactic files work at all"
   },
   {
-    "file": "aerolineas-argentinas.mov",
+    "file": "aerolineas-argentinas.mp4",
     "title": "Reactive flying",
     "date": "February 2023",
     "author": "Aerolineas Argentinas",
@@ -69,7 +69,7 @@
     "description": "Someone mistook innerText for innerHTML"
   },
   {
-    "file": "afip-form.mov",
+    "file": "afip-form.mp4",
     "title": "Error modal",
     "date": "November 2020",
     "author": "AFIP",
@@ -83,6 +83,25 @@
     "author": "Air Europa",
     "description": "NaN idea",
     "starred": false
+  },
+  {
+    "file": "airplane-screen-pink.jpg",
+    "title": "Pink",
+    "date": "August 2020",
+    "author": "KLM",
+    "description": "Hope the flight is short",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "apex-leyends-select.mp4",
+    "title": "Distortion",
+    "date": "December 2020",
+    "author": "Apex Legends",
+    "description": "I like it more that way honestly",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
   },
   {
     "file": "bank-usa.jpeg",
@@ -110,6 +129,16 @@
     "to_edit": false
   },
   {
+    "file": "belo-help.mp4",
+    "title": "Helpful",
+    "date": "June 2025",
+    "author": "Belo",
+    "description": "Maybe the fifth layer deep can help me",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
     "file": "cablevision-http-err.png",
     "title": "Broken cable",
     "date": "October 2020",
@@ -132,9 +161,18 @@
     "title": "Templating",
     "date": "June 2022",
     "author": "Cardiogram",
-    "description": "That default there is not doing it's job",
+    "description": "That default there is not doing its job",
     "starred": false,
     "to_edit": true
+  },
+  {
+    "file": "cinque-terre-public-transport.jpg",
+    "title": "Brutto",
+    "date": "August 2022",
+    "author": "Cinque Terre",
+    "description": "Public transport is a hard business indeed",
+    "starred": false,
+    "to_edit": false
   },
   {
     "file": "circle-ci-workflows.png",
@@ -146,7 +184,7 @@
     "to_edit": false
   },
   {
-    "file": "compare-defi-graphs.mov",
+    "file": "compare-defi-graphs.mp4",
     "title": "Finances",
     "date": "February 2021",
     "author": "Defiscore",
@@ -156,9 +194,19 @@
     "type": "video"
   },
   {
+    "file": "crt-of-death.mp4",
+    "title": "Art",
+    "date": "October 2022",
+    "author": "Electron",
+    "description": "I wish I could do this on purpose",
+    "starred": false,
+    "to_edit": true,
+    "type": "video"
+  },
+  {
     "file": "culture-amp-double.png",
-    "title": "Repetition",
-    "date": "\"Engagement Survey Q3-Q4 2021\"",
+    "title": "Engagement Survey Q3-Q4 2021",
+    "date": "February 2022",
     "author": "Culture Amp",
     "description": "This will allow you to complete the \"Engagement Survey Q3-Q4 2021\" survey again",
     "starred": false,
@@ -192,6 +240,42 @@
     "to_edit": false
   },
   {
+    "file": "elevator-boot.jpg",
+    "title": "Pinky point",
+    "date": "December 2021",
+    "author": "Elevator",
+    "description": "The error is lovely, the pointing sublime",
+    "starred": true,
+    "to_edit": false
+  },
+  {
+    "file": "ezeiza-404.jpg",
+    "title": "3x3",
+    "date": "September 2022",
+    "author": "Ezeiza Airport",
+    "description": "The grid makes this 9 times better",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "ezeiza-no-internet.jpg",
+    "title": "Neon",
+    "date": "August 2022",
+    "author": "Ezeiza Airport",
+    "description": "Cheeky proxy server spotted",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "ezeiza-ohno.jpg",
+    "title": "Oh!",
+    "date": "April 2023",
+    "author": "Ezeiza Airport",
+    "description": "I wonder what someone that's never used Chrome thinks of that",
+    "starred": false,
+    "to_edit": false
+  },
+  {
     "file": "feedly.jpeg",
     "title": "Source code",
     "date": "March 2022",
@@ -201,7 +285,16 @@
     "to_edit": false
   },
   {
-    "file": "github-broken-details.mov",
+    "file": "florence-crt.jpg",
+    "title": "Denied",
+    "date": "September 2022",
+    "author": "Florence",
+    "description": "I am almost sure nobody even noticed",
+    "starred": false,
+    "to_edit": true
+  },
+  {
+    "file": "github-broken-details.mp4",
     "title": "Hidden trashcan",
     "date": "August 2022",
     "author": "Github",
@@ -211,7 +304,7 @@
     "type": "video"
   },
   {
-    "file": "github-broken-diff.mov",
+    "file": "github-broken-diff.mp4",
     "title": "Review comment²",
     "date": "November 2021",
     "author": "Github",
@@ -221,7 +314,7 @@
     "type": "video"
   },
   {
-    "file": "github-comments.mov",
+    "file": "github-comments.mp4",
     "title": "State",
     "date": "November 2021",
     "author": "Github",
@@ -235,9 +328,19 @@
     "title": "Scroll",
     "date": "April 2019",
     "author": "Github",
-    "description": "Nobody could've forseen that many reactions",
+    "description": "Nobody could've foreseen that many reactions",
     "starred": false,
     "to_edit": false
+  },
+  {
+    "file": "github-dancing-ui.mp4",
+    "title": "Dance",
+    "date": "October 2025",
+    "author": "Github",
+    "description": "Dancing queeen ♫",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
   },
   {
     "file": "github-styles.png",
@@ -249,7 +352,7 @@
     "to_edit": false
   },
   {
-    "file": "gmail-autocomplete.mov",
+    "file": "gmail-autocomplete.mp4",
     "title": "El dom",
     "date": "July 2019",
     "author": "Gmail",
@@ -259,7 +362,7 @@
     "type": "video"
   },
   {
-    "file": "google-photos-empty-placeholder.mov",
+    "file": "google-photos-empty-placeholder.mp4",
     "title": "Placeholder",
     "date": "July 2019",
     "author": "Google",
@@ -282,7 +385,7 @@
     "title": "Censored",
     "date": "May 2019",
     "author": "GoogleTranslate",
-    "description": "That's...hum. Not right",
+    "description": "That's...hum, not quite right",
     "starred": true,
     "to_edit": false
   },
@@ -296,11 +399,21 @@
     "to_edit": false
   },
   {
-    "file": "hotjar-get-started.mov",
+    "file": "hotjar-get-started.mp4",
     "title": "Jumpscare",
     "date": "September 2019",
     "author": "Hotjar",
     "description": "Bet you were not expecting that",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
+    "file": "ipad-eager-mic-icon.mp4",
+    "title": "Intense",
+    "date": "July 2025",
+    "author": "Safari",
+    "description": "Chill out dude",
     "starred": false,
     "to_edit": false,
     "type": "video"
@@ -316,6 +429,15 @@
     "type": "video"
   },
   {
+    "file": "kiosk-broken-ui.jpg",
+    "title": "New age",
+    "date": "January 2025",
+    "author": "Kiosk",
+    "description": "I'd hang this in my room",
+    "starred": true,
+    "to_edit": false
+  },
+  {
     "file": "lisboa-undefined-gates.jpeg",
     "title": "Best gate",
     "date": "May 2019",
@@ -323,6 +445,15 @@
     "description": "Do you get down? nah I go till 'NaN' Gates",
     "starred": true,
     "to_edit": false
+  },
+  {
+    "file": "mac-mini-crt.JPG",
+    "title": "Black and white",
+    "date": "October 2021",
+    "author": "Mac mini",
+    "description": "Maybe the cable, maybe the software, every bit as fun",
+    "starred": false,
+    "to_edit": true
   },
   {
     "file": "macos-audio-broken.png",
@@ -334,17 +465,26 @@
     "to_edit": false
   },
   {
+    "file": "madrid-hotel-java.jpg",
+    "title": "Tattoo",
+    "date": "September 2022",
+    "author": "Quicksilver",
+    "description": "I like how disappointed he looks",
+    "starred": false,
+    "to_edit": false
+  },
+  {
     "file": "mc-donalds-buenos-aires.jpeg",
     "title": "67",
     "date": "July 2019",
     "author": "McDonalds",
-    "description": "Maybe they R8888 was intended, but this image is great regardless",
+    "description": "Maybe the R8888 was intended, but this image is great regardless",
     "starred": false,
     "to_edit": false
   },
   {
     "file": "meli-roto.png",
-    "title": "Overflow",
+    "title": "Overflow 2",
     "date": "February 2022",
     "author": "MercadoLibre",
     "description": "Once again, content not wanting to stay put",
@@ -361,7 +501,7 @@
     "to_edit": true
   },
   {
-    "file": "meli2.mov",
+    "file": "meli2.mp4",
     "title": "Mini game",
     "date": "September 2020",
     "author": "MercadoLibre",
@@ -425,7 +565,7 @@
     "to_edit": false
   },
   {
-    "file": "nintendo-argentina.mov",
+    "file": "nintendo-argentina.mp4",
     "title": "No storage",
     "date": "April 2019",
     "author": "Nintendo",
@@ -444,7 +584,7 @@
     "to_edit": false
   },
   {
-    "file": "notes-app-search.mov",
+    "file": "notes-app-search.mp4",
     "title": "Drunk",
     "date": "May 2019",
     "author": "Notes.app",
@@ -454,7 +594,7 @@
     "type": "video"
   },
   {
-    "file": "now-grande-rauch.mov",
+    "file": "now-grande-rauch.mp4",
     "title": "Stubborn",
     "date": "May 2019",
     "author": "Zeit (then Now.sh)",
@@ -462,6 +602,15 @@
     "starred": false,
     "to_edit": false,
     "type": "video"
+  },
+  {
+    "file": "paris-public-transport.jpg",
+    "title": "1983",
+    "date": "August 2022",
+    "author": "Paris",
+    "description": "Remember BIOS manufacturers?",
+    "starred": false,
+    "to_edit": true
   },
   {
     "file": "postnet.jpeg",
@@ -477,12 +626,12 @@
     "title": "Reverse SQLInjection",
     "date": "June 2019",
     "author": "Rappi",
-    "description": "Nothing worse than mixing languages for alias names. The leaked SQL too i guess",
+    "description": "Nothing worse than mixing languages for alias names. The leaked SQL too I guess",
     "starred": true,
     "to_edit": false
   },
   {
-    "file": "react-docs-site.mov",
+    "file": "react-docs-site.mp4",
     "title": "Basic example",
     "date": "January 2024",
     "author": "Redux Toolkit",
@@ -510,11 +659,20 @@
     "to_edit": false
   },
   {
-    "file": "slack-broken-threads.mov",
+    "file": "skype-demonic.png",
+    "title": "Incantation",
+    "date": "June 2024",
+    "author": "Skype",
+    "description": "RIP",
+    "starred": true,
+    "to_edit": false
+  },
+  {
+    "file": "slack-broken-threads.mp4",
     "title": "Forced upload",
     "date": "July 2019",
     "author": "Slack",
-    "description": "Probably my fault by drag and not dropping",
+    "description": "Probably my fault by dragging and not dropping",
     "starred": false,
     "to_edit": false,
     "type": "video"
@@ -529,8 +687,8 @@
     "to_edit": false
   },
   {
-    "file": "slack-quick-search.mov",
-    "title": "Convinient",
+    "file": "slack-quick-search.mp4",
+    "title": "Convenient",
     "date": "April 2019",
     "author": "Slack",
     "description": "Saving pixels",
@@ -539,7 +697,7 @@
     "type": "video"
   },
   {
-    "file": "spinners-vscode.mov",
+    "file": "spinners-vscode.mp4",
     "title": "Loading",
     "date": "August 2024",
     "author": "VSCode",
@@ -558,7 +716,25 @@
     "to_edit": false
   },
   {
-    "file": "tcba-turnos.mov",
+    "file": "street-internet-explorer.jpg",
+    "title": "Memories",
+    "date": "February 2023",
+    "author": "Street",
+    "description": "Seeing IE again gives me a wave of nostalgia, and not in a good way",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "street-windows.jpg",
+    "title": "Billboard",
+    "date": "November 2025",
+    "author": "Street",
+    "description": "Good luck Koufax, you'll be missed",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "tcba-turnos.mp4",
     "title": "Don't forget me",
     "date": "August 2021",
     "author": "TCba",
@@ -577,6 +753,16 @@
     "to_edit": false
   },
   {
+    "file": "tether-zindex.mp4",
+    "title": "Depth",
+    "date": "July 2025",
+    "author": "Crystal Intelligence",
+    "description": "z-index claims another victim",
+    "starred": false,
+    "to_edit": false,
+    "type": "video"
+  },
+  {
     "file": "thuisbezorgd-nulltoken.jpeg",
     "title": "Expected expiration",
     "date": "July 2019",
@@ -586,7 +772,7 @@
     "to_edit": false
   },
   {
-    "file": "touchbar-broken.MOV",
+    "file": "touchbar-broken.mp4",
     "title": "Don't touch",
     "date": "May 2019",
     "author": "Haptic Touch Bar",
@@ -596,7 +782,7 @@
     "type": "video"
   },
   {
-    "file": "touchbar-inconsistent-2.mov",
+    "file": "touchbar-inconsistent-2.mp4",
     "title": "Don't touch 2",
     "date": "May 2019",
     "author": "Touch Bar",
@@ -611,11 +797,56 @@
     "date": "May 2019",
     "author": "Granada",
     "description": "Don't let the first screen distract you from the other 5",
+    "starred": true,
+    "to_edit": false
+  },
+  {
+    "file": "universal-account-null.jpg",
+    "title": "Greeting",
+    "date": "August 2025",
+    "author": "Universal",
+    "description": "Well hello to you undefined NaN!",
     "starred": false,
     "to_edit": false
   },
   {
-    "file": "vs-code-terminated.mov",
+    "file": "universal-privacy.jpg",
+    "title": "Activation",
+    "date": "August 2025",
+    "author": "Universal",
+    "description": "Please untoggle those options",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "universal-studios-restart.jpeg",
+    "title": "Mystery update",
+    "date": "August 2025",
+    "author": "Universal",
+    "description": "That's a...wide range",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "universal-wifi.jpg",
+    "title": "Confusing",
+    "date": "August 2025",
+    "author": "Universal",
+    "description": "To be or not to be (logged in), that's the question",
+    "starred": true,
+    "to_edit": false
+  },
+  {
+    "file": "venice-airport-boot.jpg",
+    "title": "pxeboot",
+    "date": "August 2022",
+    "author": "Venice",
+    "description": "Darn cable",
+    "starred": false,
+    "to_edit": false
+  },
+  {
+    "file": "vs-code-terminated.mp4",
     "title": "Lies",
     "date": "May 2023",
     "author": "VSCode",
@@ -628,7 +859,7 @@
     "file": "whatsapp-without-text.jpg",
     "title": "Redacted",
     "date": "October 2018",
-    "author": "Whastapp",
+    "author": "WhatsApp",
     "description": "Phone photo for authenticity",
     "starred": false,
     "to_edit": false
@@ -670,7 +901,7 @@
     "to_edit": false
   },
   {
-    "file": "zenhub-below-fold.mov",
+    "file": "zenhub-below-fold.mp4",
     "title": "Appended",
     "date": "March 2022",
     "author": "Zenhub",
@@ -689,7 +920,7 @@
     "to_edit": false
   },
   {
-    "file": "zoom-update.mov",
+    "file": "zoom-update.mp4",
     "title": "Outdated",
     "date": "February 2020",
     "author": "Zoom",
