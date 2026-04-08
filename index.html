@@ -16,23 +16,23 @@
     <div class="controls">
       <div class="sort-controls">
         <span class="control-label">Sort by</span>
-        <button class="sort-btn active" data-sort="date" data-dir="desc">
+        <button class="control-btn sort-btn active" data-sort="date" data-dir="desc">
           Date ↓
         </button>
-        <button class="sort-btn" data-sort="author" data-dir="asc">
+        <button class="control-btn sort-btn" data-sort="author" data-dir="asc">
           Author ↑
         </button>
       </div>
       <div class="filter-row">
         <div class="filter-controls">
           <span class="control-label">Filter</span>
-          <button class="filter-btn" id="favorite-filter">Favorite ★</button>
+          <button class="control-btn" id="favorite-filter">Favorite ★</button>
         </div>
         <p class="control-label exhibit-count" id="exhibit-count"></p>
       </div>
     </div>
 
-    <main id="gallery"></main>
+    <main class="gallery" id="gallery"></main>
     <div id="modal" class="modal">
       <div class="modal-content">
         <img id="modal-image" style="display: none" />
