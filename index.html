@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The broken software exhibition</title>
+    <title>Broken software exhibition</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <h1>The broken software exhibition</h1>
+      <h1>Broken software exhibition</h1>
       <p class="tagline">A curated collection of digital misfortune.</p>
     </header>
     <div class="sort-controls">
@@ -20,9 +20,10 @@
       <button class="sort-btn" data-sort="author" data-dir="asc">
         Author ↑
       </button>
-      <button class="sort-btn" data-sort="favorite" data-dir="desc">
-        Favorite ★
-      </button>
+    </div>
+    <div class="filter-controls">
+      <span class="filter-label">Filter</span>
+      <button class="filter-btn" id="favorite-filter">★ Favorite</button>
     </div>
     <main id="gallery"></main>
     <div id="modal" class="modal">

@@ -1,4 +1,5 @@
 let exhibits = [];
+let showOnlyFavorites = false;
 
 const MONTHS = {
   january: 0,
@@ -29,13 +30,7 @@ function sortExhibits(field, direction) {
   exhibits.sort((a, b) => {
     let comparison;
 
-    if (field === "favorite") {
-      if (a.starred === b.starred) {
-        comparison = parseDate(a.date) - parseDate(b.date);
-      } else {
-        comparison = a.starred ? 1 : -1;
-      }
-    } else if (field === "date") {
+    if (field === "date") {
       comparison = parseDate(a.date) - parseDate(b.date);
     } else {
       comparison = (a[field] || "").localeCompare(b[field] || "");
@@ -53,7 +48,11 @@ function renderGallery() {
   const gallery = document.getElementById("gallery");
   gallery.innerHTML = "";
 
-  for (const exhibit of exhibits) {
+  const visibleExhibits = showOnlyFavorites
+    ? exhibits.filter((exhibit) => exhibit.starred)
+    : exhibits;
+
+  for (const exhibit of visibleExhibits) {
     const card = document.createElement("div");
     card.className = "exhibit";
     const isVideo = exhibit.type === "video";
@@ -136,9 +135,7 @@ for (const button of document.querySelectorAll(".sort-btn")) {
     const field = button.dataset.sort;
     let direction = button.dataset.dir;
 
-    if (field === "favorite") {
-      if (button.classList.contains("active")) return;
-    } else if (button.classList.contains("active")) {
+    if (button.classList.contains("active")) {
       direction = direction === "asc" ? "desc" : "asc";
       button.dataset.dir = direction;
     }
@@ -149,15 +146,19 @@ for (const button of document.querySelectorAll(".sort-btn")) {
 
     button.classList.add("active");
 
-    if (field !== "favorite") {
-      const arrow = direction === "asc" ? "↑" : "↓";
-      const label = field.charAt(0).toUpperCase() + field.slice(1);
-      button.textContent = `${label} ${arrow}`;
-    }
+    const arrow = direction === "asc" ? "↑" : "↓";
+    const label = field.charAt(0).toUpperCase() + field.slice(1);
+    button.textContent = `${label} ${arrow}`;
 
     sortExhibits(field, direction);
   });
 }
+
+document.getElementById("favorite-filter").addEventListener("click", (event) => {
+  showOnlyFavorites = !showOnlyFavorites;
+  event.currentTarget.classList.toggle("active", showOnlyFavorites);
+  renderGallery();
+});
 
 fetch("exhibits.json")
   .then((response) => response.json())
