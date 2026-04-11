@@ -505,7 +505,7 @@
     "title": "Mini game",
     "date": "September 2020",
     "author": "MercadoLibre",
-    "description": "Looks kinda fun, feels awful",
+    "description": "Looks kinda fun, it's not",
     "starred": false,
     "to_edit": false,
     "type": "video"
@@ -645,7 +645,7 @@
     "title": "Concept of time",
     "date": "April 2023",
     "author": "Reminders.app",
-    "description": "To their credit, it says \"Suggested\", not \"Found\"",
+    "description": "To their credit, it says \"Suggested\", not \"Exact\"",
     "starred": false,
     "to_edit": false
   },
