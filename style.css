@@ -265,6 +265,36 @@ header h1 {
   background: #000;
 }
 
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 1rem;
+  z-index: 101;
+  transition: color 0.2s;
+}
+
+.modal-nav:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.modal-nav svg {
+  width: 32px;
+  height: 32px;
+}
+
+.modal-prev {
+  left: 0;
+}
+
+.modal-next {
+  right: 0;
+}
+
 footer {
   margin-top: var(--gap-lg);
   padding: var(--gap-lg) 0 2rem;
@@ -291,6 +321,11 @@ footer a:hover {
 }
 
 @media (max-width: 560px) {
+  .modal-nav {
+    display: none;
+  }
+
+
   body {
     --pad-horizontal: 1.5rem;
   }

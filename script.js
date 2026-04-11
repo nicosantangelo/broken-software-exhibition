@@ -1,5 +1,6 @@
 let exhibits = [];
 let showOnlyFavorites = false;
+let currentModalIndex = -1;
 
 const MONTHS = {
   january: 0,
@@ -78,35 +79,55 @@ function renderGallery() {
       </div>
     `;
 
+    const exhibitIndex = visibleExhibits.indexOf(exhibit);
     card.querySelector(".exhibit-media").addEventListener("click", () => {
-      if (isVideo) {
-        openModal("video", exhibit.video);
-      } else {
-        openModal("image", exhibit.image);
-      }
+      openModal(exhibitIndex);
     });
 
     gallery.appendChild(card);
   }
 }
 
-function openModal(type, source) {
-  const modal = document.getElementById("modal");
+function getVisibleExhibits() {
+  return showOnlyFavorites
+    ? exhibits.filter((exhibit) => exhibit.starred)
+    : exhibits;
+}
+
+function openModal(index) {
+  currentModalIndex = index;
+  showModalContent();
+  document.getElementById("modal").classList.add("active");
+}
+
+function showModalContent() {
+  const visibleExhibits = getVisibleExhibits();
+  const exhibit = visibleExhibits[currentModalIndex];
   const image = document.getElementById("modal-image");
   const video = document.getElementById("modal-video");
 
-  if (type === "video") {
+  video.pause();
+  video.src = "";
+
+  if (exhibit.type === "video") {
     image.style.display = "none";
     video.style.display = "block";
-    video.src = source;
+    video.src = exhibit.video;
     video.play();
   } else {
     video.style.display = "none";
     image.style.display = "block";
-    image.src = source;
+    image.src = exhibit.image;
   }
+}
 
-  modal.classList.add("active");
+function navigateModal(direction) {
+  const visibleExhibits = getVisibleExhibits();
+  const count = visibleExhibits.length;
+  if (count === 0) return;
+
+  currentModalIndex = (currentModalIndex + direction + count) % count;
+  showModalContent();
 }
 
 function closeModal() {
@@ -126,8 +147,19 @@ document.getElementById("modal").addEventListener("click", (event) => {
   if (event.target === event.currentTarget) closeModal();
 });
 
+document.getElementById("modal-prev").addEventListener("click", () => {
+  navigateModal(-1);
+});
+
+document.getElementById("modal-next").addEventListener("click", () => {
+  navigateModal(1);
+});
+
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeModal();
+  if (!document.getElementById("modal").classList.contains("active")) return;
+  if (event.key === "ArrowLeft") navigateModal(-1);
+  if (event.key === "ArrowRight") navigateModal(1);
 });
 
 for (const button of document.querySelectorAll(".sort-btn")) {

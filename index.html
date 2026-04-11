@@ -34,10 +34,20 @@
 
     <main class="gallery" id="gallery"></main>
     <div id="modal" class="modal">
+      <button class="modal-nav modal-prev" id="modal-prev">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15,4 7,12 15,20" />
+        </svg>
+      </button>
       <div class="modal-content">
         <img id="modal-image" style="display: none" />
         <video id="modal-video" controls style="display: none"></video>
       </div>
+      <button class="modal-nav modal-next" id="modal-next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9,4 17,12 9,20" />
+        </svg>
+      </button>
     </div>
     <footer>
       <p>At least with AI this won't ever happen again, right?</p>
