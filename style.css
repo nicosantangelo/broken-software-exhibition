@@ -109,6 +109,12 @@ header h1 {
   gap: 0.3rem;
 }
 
+.btn-dice {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
 .btn-star {
   position: relative;
   bottom: 1px;

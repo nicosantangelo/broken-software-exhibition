@@ -16,22 +16,58 @@
     <div class="controls">
       <div class="sort-controls">
         <span class="control-label">Sort by</span>
-        <button
-          class="control-btn sort-btn active"
-          data-sort="date"
-          data-dir="desc"
-        >
-          Date ↓
+        <button class="control-btn sort-btn active" data-sort="random">
+          <svg
+            class="btn-dice"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="2.5" />
+            <circle
+              cx="8.5"
+              cy="8.5"
+              r="1.5"
+              fill="currentColor"
+              stroke="none"
+            />
+            <circle
+              cx="15.5"
+              cy="8.5"
+              r="1.5"
+              fill="currentColor"
+              stroke="none"
+            />
+            <circle
+              cx="8.5"
+              cy="15.5"
+              r="1.5"
+              fill="currentColor"
+              stroke="none"
+            />
+            <circle
+              cx="15.5"
+              cy="15.5"
+              r="1.5"
+              fill="currentColor"
+              stroke="none"
+            />
+          </svg>
+          Random
+        </button>
+        <button class="control-btn sort-btn" data-sort="date" data-dir="desc">
+          ↓ Date
         </button>
         <button class="control-btn sort-btn" data-sort="author" data-dir="asc">
-          Author ↑
+          ↑ Author
         </button>
       </div>
       <div class="filter-row">
         <div class="filter-controls">
           <span class="control-label">Filter</span>
           <button class="control-btn" id="favorite-filter">
-            Favorite <span class="btn-star">★</span>
+            <span class="btn-star">★</span> Favorite
           </button>
         </div>
         <p class="control-label exhibit-count" id="exhibit-count"></p>

@@ -29,6 +29,10 @@ function parseDate(dateString) {
 
 function sortExhibits(field, direction) {
   exhibits.sort((a, b) => {
+    if (field === "random") {
+      return a.randomOrder - b.randomOrder;
+    }
+
     let comparison;
 
     if (field === "date") {
@@ -177,24 +181,27 @@ document.addEventListener("keydown", (event) => {
 for (const button of document.querySelectorAll(".sort-btn")) {
   button.addEventListener("click", () => {
     const field = button.dataset.sort;
-    let direction = button.dataset.dir;
 
     if (button.classList.contains("active")) {
-      direction = direction === "asc" ? "desc" : "asc";
+      if (field === "random") return;
+
+      let direction = button.dataset.dir === "asc" ? "desc" : "asc";
       button.dataset.dir = direction;
+
+      const arrow = direction === "asc" ? "↑" : "↓";
+      const label = field.charAt(0).toUpperCase() + field.slice(1);
+      button.textContent = `${arrow} ${label}`;
+
+      sortExhibits(field, direction);
+      return;
     }
 
     for (const sortButton of document.querySelectorAll(".sort-btn")) {
       sortButton.classList.remove("active");
     }
-
     button.classList.add("active");
 
-    const arrow = direction === "asc" ? "↑" : "↓";
-    const label = field.charAt(0).toUpperCase() + field.slice(1);
-    button.textContent = `${label} ${arrow}`;
-
-    sortExhibits(field, direction);
+    sortExhibits(field, button.dataset.dir);
   });
 }
 
@@ -220,11 +227,12 @@ fetch("exhibits.json")
         author: item.author || "",
         description: item.description || "",
         starred: !!item.starred,
+        randomOrder: Math.random(),
         ...(isVideo ? { type: "video", video: `assets/${item.file}` } : {}),
       });
     }
 
     document.getElementById("exhibit-count").textContent =
       `Exhibiting ${exhibits.length} pieces`;
-    sortExhibits("date", "desc");
+    sortExhibits("random");
   });
