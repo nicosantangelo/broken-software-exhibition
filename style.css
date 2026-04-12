@@ -248,7 +248,7 @@ header h1 {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.95);
   align-items: center;
   justify-content: center;
 }
@@ -263,6 +263,28 @@ header h1 {
   max-height: 80vh;
   display: block;
   background: #000;
+}
+
+.modal-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1.5rem var(--pad-horizontal);
+  z-index: 101;
+  max-width: 400px;
+}
+
+.modal-title {
+  color: var(--color-white);
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.modal-description {
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  line-height: 1.4;
 }
 
 .modal-nav {
@@ -324,7 +346,6 @@ footer a:hover {
   .modal-nav {
     display: none;
   }
-
 
   body {
     --pad-horizontal: 1.5rem;

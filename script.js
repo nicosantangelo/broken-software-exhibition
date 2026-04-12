@@ -106,6 +106,10 @@ function showModalContent() {
   const image = document.getElementById("modal-image");
   const video = document.getElementById("modal-video");
 
+  document.getElementById("modal-title").textContent = exhibit.title;
+  document.getElementById("modal-description").textContent =
+    exhibit.description;
+
   video.pause();
   video.src = "";
 
@@ -141,6 +145,14 @@ function closeModal() {
   image.src = "";
   image.style.display = "none";
   modal.classList.remove("active");
+
+  const cards = document.getElementById("gallery").children;
+  if (currentModalIndex >= 0 && currentModalIndex < cards.length) {
+    cards[currentModalIndex].scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
+  }
 }
 
 document.getElementById("modal").addEventListener("click", (event) => {
@@ -186,11 +198,13 @@ for (const button of document.querySelectorAll(".sort-btn")) {
   });
 }
 
-document.getElementById("favorite-filter").addEventListener("click", (event) => {
-  showOnlyFavorites = !showOnlyFavorites;
-  event.currentTarget.classList.toggle("active", showOnlyFavorites);
-  renderGallery();
-});
+document
+  .getElementById("favorite-filter")
+  .addEventListener("click", (event) => {
+    showOnlyFavorites = !showOnlyFavorites;
+    event.currentTarget.classList.toggle("active", showOnlyFavorites);
+    renderGallery();
+  });
 
 fetch("exhibits.json")
   .then((response) => response.json())
@@ -210,6 +224,7 @@ fetch("exhibits.json")
       });
     }
 
-    document.getElementById("exhibit-count").textContent = `Exhibiting ${exhibits.length} pieces`;
+    document.getElementById("exhibit-count").textContent =
+      `Exhibiting ${exhibits.length} pieces`;
     sortExhibits("date", "desc");
   });
