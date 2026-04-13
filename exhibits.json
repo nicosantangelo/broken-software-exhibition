@@ -11,32 +11,28 @@
     "title": "Hospital",
     "date": "June 2020",
     "author": "Website",
-    "description": "I think they might be using Java",
-    "type": "video"
+    "description": "I think they might be using Java"
   },
   {
     "file": "MeLi-venta.mp4",
     "title": "Selling form",
     "date": "June 2021",
     "author": "MercadoLibre",
-    "description": "What a lovely dancing footer that is",
-    "type": "video"
+    "description": "What a lovely dancing footer that is"
   },
   {
     "file": "Notes-app-cursor-madness.mp4",
     "title": "Drunk text editor",
     "date": "July 2019",
     "author": "Notes.app",
-    "description": "The cursor is a notoriously hard to implement feature",
-    "type": "video"
+    "description": "The cursor is a notoriously hard to implement feature"
   },
   {
     "file": "Telegram-text-bug.mp4",
     "title": "Flying typing",
     "date": "May 2023",
     "author": "Telegram",
-    "description": "It's more dynamic this way",
-    "type": "video"
+    "description": "It's more dynamic this way"
   },
   {
     "file": "aave-ipfs.png",
@@ -50,8 +46,7 @@
     "title": "Reactive flying",
     "date": "February 2023",
     "author": "Aerolineas Argentinas",
-    "description": "At least you have the invariant number",
-    "type": "video"
+    "description": "At least you have the invariant number"
   },
   {
     "file": "aerolineas-broken-flight.jpeg",
@@ -73,8 +68,7 @@
     "title": "Error modal",
     "date": "November 2020",
     "author": "AFIP",
-    "description": "I love to see half of the source of an error, very useful",
-    "type": "video"
+    "description": "I love to see half of the source of an error, very useful"
   },
   {
     "file": "air-europa-flight.jpg",
@@ -98,8 +92,7 @@
     "date": "December 2020",
     "author": "Apex Legends",
     "description": "I like it more that way honestly",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "bank-usa.jpeg",
@@ -131,8 +124,7 @@
     "date": "June 2025",
     "author": "Belo",
     "description": "Maybe the fifth layer deep can help me",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "cablevision-http-err.png",
@@ -180,8 +172,7 @@
     "date": "February 2021",
     "author": "Defiscore",
     "description": "Aw yes, NOW I understand",
-    "starred": true,
-    "type": "video"
+    "starred": true
   },
   {
     "file": "crt-of-death.mp4",
@@ -189,8 +180,7 @@
     "date": "October 2022",
     "author": "Electron",
     "description": "I wish I could do this on purpose",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "culture-amp-double.png",
@@ -278,8 +268,7 @@
     "date": "August 2022",
     "author": "Github",
     "description": "Careful where you click",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "github-broken-diff.mp4",
@@ -287,8 +276,7 @@
     "date": "November 2021",
     "author": "Github",
     "description": "Testing out the pair PR review",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "github-comments.mp4",
@@ -296,8 +284,7 @@
     "date": "November 2021",
     "author": "Github",
     "description": "I get it, the history API likes to play hard to get",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "github-css.png",
@@ -313,8 +300,7 @@
     "date": "October 2025",
     "author": "Github",
     "description": "Dancing queeen ♫",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "github-styles.png",
@@ -330,8 +316,7 @@
     "date": "July 2019",
     "author": "Gmail",
     "description": "I swear \"El dom\" didn't make sense in this context",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "google-photos-empty-placeholder.mp4",
@@ -339,8 +324,7 @@
     "date": "July 2019",
     "author": "Google",
     "description": "Happens to the best of us",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "google-search.png",
@@ -372,8 +356,7 @@
     "date": "September 2019",
     "author": "Hotjar",
     "description": "Bet you were not expecting that",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "ipad-eager-mic-icon.mp4",
@@ -381,8 +364,7 @@
     "date": "July 2025",
     "author": "Safari",
     "description": "Chill out dude",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "jampp-scrolling.mp4",
@@ -390,8 +372,7 @@
     "date": "May 2019",
     "author": "Jampp",
     "description": "Who scrolls to the right anyways?",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "kiosk-broken-ui.jpg",
@@ -463,8 +444,7 @@
     "date": "September 2020",
     "author": "MercadoLibre",
     "description": "Looks kinda fun, it's not",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "menudigital.png",
@@ -520,8 +500,7 @@
     "date": "April 2019",
     "author": "Nintendo",
     "description": "This one is probably my fault, but still man",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "node-null.jpeg",
@@ -537,8 +516,7 @@
     "date": "May 2019",
     "author": "Notes.app",
     "description": "I can't even begin to joke about what's going on here",
-    "starred": true,
-    "type": "video"
+    "starred": true
   },
   {
     "file": "now-grande-rauch.mp4",
@@ -546,8 +524,7 @@
     "date": "May 2019",
     "author": "Zeit (then Now.sh)",
     "description": "That's clearly not an option, just a statement",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "paris-public-transport.jpg",
@@ -579,8 +556,7 @@
     "date": "January 2024",
     "author": "Redux Toolkit",
     "description": "Okay, that's interesting...",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "reminders-suggested-time.png",
@@ -612,8 +588,7 @@
     "date": "July 2019",
     "author": "Slack",
     "description": "Probably my fault by dragging and not dropping",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "slack-loading.png",
@@ -629,8 +604,7 @@
     "date": "April 2019",
     "author": "Slack",
     "description": "Saving pixels",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "spinners-vscode.mp4",
@@ -638,8 +612,7 @@
     "date": "August 2024",
     "author": "VSCode",
     "description": "There's something endlessly funny about multiple spinners",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "steam-localstorage.jpg",
@@ -671,8 +644,7 @@
     "date": "August 2021",
     "author": "TCba",
     "description": "Are they...saving users in txt files?!",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "telegram-ram.png",
@@ -688,8 +660,7 @@
     "date": "July 2025",
     "author": "Crystal Intelligence",
     "description": "z-index claims another victim",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "thuisbezorgd-nulltoken.jpeg",
@@ -705,8 +676,7 @@
     "date": "May 2019",
     "author": "Haptic Touch Bar",
     "description": "Honestly, I wasn't using it anyways",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "touchbar-inconsistent-2.mp4",
@@ -714,8 +684,7 @@
     "date": "May 2019",
     "author": "Touch Bar",
     "description": "Always a joy to use",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "train-in-granada.jpg",
@@ -771,8 +740,7 @@
     "date": "May 2023",
     "author": "VSCode",
     "description": "That description is only giving me empty hope",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "whatsapp-without-text.jpg",
@@ -820,8 +788,7 @@
     "date": "March 2022",
     "author": "Zenhub",
     "description": "Hijacking websites is always a fun ordeal",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "zoom-mic-null.jpeg",
@@ -837,8 +804,7 @@
     "date": "February 2020",
     "author": "Zoom",
     "description": "You are good enough as you are",
-    "starred": false,
-    "type": "video"
+    "starred": false
   },
   {
     "file": "agip-error-git-sql.png",
