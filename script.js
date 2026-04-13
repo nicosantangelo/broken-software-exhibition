@@ -1,4 +1,7 @@
-let exhibits = [];
+// ----------------------------------------
+// State & constants
+
+const exhibits = [];
 let showOnlyFavorites = false;
 let currentModalIndex = -1;
 
@@ -17,8 +20,13 @@ const MONTHS = {
   december: 11,
 };
 
+// ----------------------------------------
+// Date parsing & sorting
+
 function parseDate(dateString) {
-  if (!dateString) return 0;
+  if (!dateString) {
+    return 0;
+  }
 
   const parts = dateString.toLowerCase().split(" ");
   const month = MONTHS[parts[0]] || 0;
@@ -46,6 +54,9 @@ function sortExhibits(field, direction) {
 
   renderGallery();
 }
+
+// ----------------------------------------
+// Gallery rendering
 
 const PLAY_ICON = `<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>`;
 
@@ -92,16 +103,34 @@ function renderGallery() {
   }
 }
 
+// ----------------------------------------
+// Modal
+
 function getVisibleExhibits() {
   return showOnlyFavorites
     ? exhibits.filter((exhibit) => exhibit.starred)
     : exhibits;
 }
 
+function updateHash(filename) {
+  history.pushState(null, "", "#" + encodeURIComponent(filename));
+}
+
+function replaceHash(filename) {
+  history.replaceState(null, "", "#" + encodeURIComponent(filename));
+}
+
+function clearHash() {
+  history.pushState(null, "", window.location.pathname);
+}
+
 function openModal(index) {
   currentModalIndex = index;
   showModalContent();
   document.getElementById("modal").classList.add("active");
+
+  const visibleExhibits = getVisibleExhibits();
+  updateHash(visibleExhibits[currentModalIndex].file);
 }
 
 function showModalContent() {
@@ -132,13 +161,17 @@ function showModalContent() {
 function navigateModal(direction) {
   const visibleExhibits = getVisibleExhibits();
   const count = visibleExhibits.length;
-  if (count === 0) return;
+  if (count === 0) {
+    return;
+  }
 
   currentModalIndex = (currentModalIndex + direction + count) % count;
   showModalContent();
+
+  replaceHash(visibleExhibits[currentModalIndex].file);
 }
 
-function closeModal() {
+function silentCloseModal() {
   const modal = document.getElementById("modal");
   const image = document.getElementById("modal-image");
   const video = document.getElementById("modal-video");
@@ -159,8 +192,41 @@ function closeModal() {
   }
 }
 
+function closeModal() {
+  silentCloseModal();
+  clearHash();
+}
+
+function openModalByFile(filename) {
+  const exhibit = exhibits.find((e) => e.file === filename);
+  if (!exhibit) {
+    return;
+  }
+
+  if (showOnlyFavorites && !exhibit.starred) {
+    showOnlyFavorites = false;
+    document.getElementById("favorite-filter").classList.remove("active");
+    renderGallery();
+  }
+
+  const visibleExhibits = getVisibleExhibits();
+  const index = visibleExhibits.indexOf(exhibit);
+  if (index === -1) {
+    return;
+  }
+
+  currentModalIndex = index;
+  showModalContent();
+  document.getElementById("modal").classList.add("active");
+}
+
+// ----------------------------------------
+// Event listeners
+
 document.getElementById("modal").addEventListener("click", (event) => {
-  if (event.target === event.currentTarget) closeModal();
+  if (event.target === event.currentTarget) {
+    closeModal();
+  }
 });
 
 document.getElementById("modal-prev").addEventListener("click", () => {
@@ -172,18 +238,40 @@ document.getElementById("modal-next").addEventListener("click", () => {
 });
 
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") closeModal();
-  if (!document.getElementById("modal").classList.contains("active")) return;
-  if (event.key === "ArrowLeft") navigateModal(-1);
-  if (event.key === "ArrowRight") navigateModal(1);
+  if (!document.getElementById("modal").classList.contains("active")) {
+    return;
+  }
+  if (event.key === "Escape") {
+    closeModal();
+  }
+  if (event.key === "ArrowLeft") {
+    navigateModal(-1);
+  }
+  if (event.key === "ArrowRight") {
+    navigateModal(1);
+  }
 });
+
+window.addEventListener("popstate", () => {
+  const hash = decodeURIComponent(window.location.hash.slice(1));
+  if (hash) {
+    openModalByFile(hash);
+  } else {
+    silentCloseModal();
+  }
+});
+
+// ----------------------------------------
+// Sort & filter controls
 
 for (const button of document.querySelectorAll(".sort-btn")) {
   button.addEventListener("click", () => {
     const field = button.dataset.sort;
 
     if (button.classList.contains("active")) {
-      if (field === "random") return;
+      if (field === "random") {
+        return;
+      }
 
       let direction = button.dataset.dir === "asc" ? "desc" : "asc";
       button.dataset.dir = direction;
@@ -213,6 +301,9 @@ document
     renderGallery();
   });
 
+// ----------------------------------------
+// Initialization
+
 fetch("exhibits.json")
   .then((response) => response.json())
   .then((data) => {
@@ -221,6 +312,7 @@ fetch("exhibits.json")
       const isVideo = ["mp4", "mov", "webm"].includes(extension);
 
       exhibits.push({
+        file: item.file,
         image: `assets/${item.file}`,
         title: item.title || item.file,
         date: item.date || "",
@@ -235,4 +327,9 @@ fetch("exhibits.json")
     document.getElementById("exhibit-count").textContent =
       `Exhibiting ${exhibits.length} pieces`;
     sortExhibits("random");
+
+    const initialHash = decodeURIComponent(window.location.hash.slice(1));
+    if (initialHash) {
+      openModalByFile(initialHash);
+    }
   });
