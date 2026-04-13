@@ -5,6 +5,7 @@ to eliminate render-blocking requests and the exhibits.json fetch.
 Overwrites index.html in place for GitHub Pages deployment.
 """
 
+import json
 import os
 import re
 
@@ -49,7 +50,7 @@ def build():
     html = read("index.html")
     css = read("style.css")
     js = read("script.js")
-    exhibits_json = read("exhibits.json")
+    exhibits_json = json.dumps(json.loads(read("exhibits.json")), separators=(",", ":"))
 
     html = re.sub(
         r'<link rel="stylesheet" href="style\.css"\s*/?>',
