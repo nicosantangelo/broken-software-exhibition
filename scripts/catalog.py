@@ -124,8 +124,6 @@ def main():
             "starred": starred,
             "to_edit": to_edit,
         }
-        if is_video:
-            entry["type"] = "video"
 
         exhibits.append(entry)
         print(f"  ✓ Saved\n")

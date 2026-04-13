@@ -234,7 +234,6 @@ EXHIBIT_DATE="$date" \
 EXHIBIT_AUTHOR="$author" \
 EXHIBIT_DESC="$description" \
 EXHIBIT_STARRED="$starred" \
-EXHIBIT_IS_VIDEO="$is_video" \
 python3 -c "
 import json, os
 
@@ -249,9 +248,6 @@ entry = {
     'description': os.environ['EXHIBIT_DESC'],
     'starred': os.environ['EXHIBIT_STARRED'] == 'true',
 }
-
-if os.environ['EXHIBIT_IS_VIDEO'] == 'true':
-    entry['type'] = 'video'
 
 data.append(entry)
 

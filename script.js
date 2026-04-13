@@ -247,6 +247,7 @@ function showModalContent() {
     video.style.display = "none";
     image.style.display = "block";
     image.src = exhibit.image;
+    image.alt = exhibit.title;
   }
 }
 
@@ -468,7 +469,7 @@ function loadExhibits(allExhibits) {
   }
 }
 
-if (ALL_EXHIBITS) {
+if (typeof ALL_EXHIBITS !== "undefined") {
   loadExhibits(ALL_EXHIBITS);
 } else {
   fetch("exhibits.json")
