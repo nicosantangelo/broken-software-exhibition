@@ -275,9 +275,10 @@ header h1 {
   position: absolute;
   top: 0;
   left: 0;
-  padding: 1.5rem var(--pad-horizontal);
+  width: 100%;
+  padding: 1.5rem var(--pad-horizontal) 1rem;
   z-index: 101;
-  max-width: 400px;
+  background: rgba(0, 0, 0, 0.95);
 }
 
 .modal-title {

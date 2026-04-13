@@ -59,6 +59,9 @@ function sortExhibits(field, direction) {
 // Gallery rendering
 
 const PLAY_ICON = `<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>`;
+const IS_TOUCH_DEVICE = window.matchMedia(
+  "(hover: none) and (pointer: coarse)"
+).matches;
 
 function renderGallery() {
   const gallery = document.getElementById("gallery");
@@ -98,6 +101,11 @@ function renderGallery() {
     card.querySelector(".exhibit-media").addEventListener("click", () => {
       openModal(exhibitIndex);
     });
+
+    if (isVideo && IS_TOUCH_DEVICE) {
+      const video = card.querySelector("video");
+      video.poster = `assets/posters/${exhibit.file.replace(/\.mp4$/, ".jpg")}`;
+    }
 
     gallery.appendChild(card);
   }
@@ -225,6 +233,12 @@ function openModalByFile(filename) {
 
 document.getElementById("modal").addEventListener("click", (event) => {
   if (event.target === event.currentTarget) {
+    closeModal();
+  }
+});
+
+document.getElementById("modal-image").addEventListener("click", () => {
+  if (window.innerWidth <= 560) {
     closeModal();
   }
 });
