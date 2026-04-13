@@ -1,3 +1,5 @@
+// Requires ALL_EXHIBITS and BASE_PATH from constants.js loaded before
+
 // ----------------------------------------
 // State & constants
 
@@ -20,6 +22,13 @@ const MONTHS = {
   november: 10,
   december: 11,
 };
+
+// ----------------------------------------
+// Path
+
+function resolvePath(path) {
+  return `${BASE_PATH}/${path}`;
+}
 
 // ----------------------------------------
 // Date parsing & sorting
@@ -65,25 +74,26 @@ function renderGallery() {
   const gallery = document.getElementById("gallery");
   gallery.innerHTML = "";
 
-  const visibleExhibits = showOnlyFavorites
-    ? exhibits.filter((exhibit) => exhibit.starred)
-    : exhibits;
+  const visibleExhibits = getVisibleExhibits();
 
   const fragment = document.createDocumentFragment();
 
   for (let index = 0; index < visibleExhibits.length; index++) {
     const exhibit = visibleExhibits[index];
-    const card = document.createElement("div");
-    card.className = "exhibit";
     const isVideo = exhibit.type === "video";
     const loadingAttr = index < 6 ? 'fetchpriority="high"' : 'loading="lazy"';
+    const videoPath = resolvePath(
+      `assets/posters/${exhibit.file.replace(/\.mp4$/, ".jpg")}`,
+    );
+    const card = document.createElement("div");
 
     const mediaContent = isVideo
-      ? `<video src="${exhibit.video}" muted preload="none" poster="assets/posters/${exhibit.file.replace(/\.mp4$/, ".jpg")}"></video>`
+      ? `<video src="${exhibit.video}" muted preload="none" poster="${videoPath}"></video>`
       : `<img src="${exhibit.thumb}" alt="${exhibit.title}" ${loadingAttr} decoding="async">`;
 
     const meta = [exhibit.author, exhibit.date].filter(Boolean).join(", ");
 
+    card.className = "exhibit";
     card.innerHTML = `
       <div class="exhibit-media${isVideo ? " is-video" : ""}">
         ${mediaContent}
@@ -345,7 +355,10 @@ window.addEventListener("popstate", () => {
   const { sort, filename } = parseHash(hash);
 
   if (sort) {
-    if (sort.field !== currentSort.field || sort.direction !== currentSort.direction) {
+    if (
+      sort.field !== currentSort.field ||
+      sort.direction !== currentSort.direction
+    ) {
       applySortFromHash(sort.field, sort.direction);
     }
     silentCloseModal();
@@ -408,48 +421,57 @@ document
 // ----------------------------------------
 // Initialization
 
-fetch("exhibits.json")
-  .then((response) => response.json())
-  .then((data) => {
-    for (const item of data) {
-      const extension = item.file.split(".").pop().toLowerCase();
-      const isVideo = ["mp4", "mov", "webm"].includes(extension);
-      const baseName = item.file.substring(0, item.file.lastIndexOf("."));
+function loadExhibits(allExhibits) {
+  for (const item of allExhibits) {
+    const extension = item.file.split(".").pop().toLowerCase();
+    const isVideo = ["mp4", "mov", "webm"].includes(extension);
+    const baseName = item.file.substring(0, item.file.lastIndexOf("."));
 
-      exhibits.push({
-        file: item.file,
-        image: `assets/${item.file}`,
-        thumb: `assets/thumbs/${baseName}.jpg`,
-        title: item.title || item.file,
-        date: item.date || "",
-        author: item.author || "",
-        description: item.description || "",
-        starred: !!item.starred,
-        randomOrder: Math.random(),
-        ...(isVideo ? { type: "video", video: `assets/${item.file}` } : {}),
-      });
+    exhibits.push({
+      file: item.file,
+      image: resolvePath(`assets/${item.file}`),
+      thumb: resolvePath(`assets/thumbs/${baseName}.jpg`),
+      title: item.title || item.file,
+      date: item.date || "",
+      author: item.author || "",
+      description: item.description || "",
+      starred: !!item.starred,
+      randomOrder: Math.random(),
+      ...(isVideo
+        ? { type: "video", video: resolvePath(`assets/${item.file}`) }
+        : {}),
+    });
+  }
+
+  const initialHash = decodeURIComponent(window.location.hash.slice(1));
+  const { sort: initialSort, filename: initialFilename } =
+    parseHash(initialHash);
+
+  if (initialFilename) {
+    const hashExhibit = exhibits.find((e) => e.file === initialFilename);
+    if (hashExhibit) {
+      hashExhibit.randomOrder = -1;
     }
+  }
 
-    const initialHash = decodeURIComponent(window.location.hash.slice(1));
-    const { sort: initialSort, filename: initialFilename } = parseHash(initialHash);
+  document.getElementById("exhibit-count").textContent =
+    `Exhibiting ${exhibits.length} pieces`;
 
-    if (initialFilename) {
-      const hashExhibit = exhibits.find((e) => e.file === initialFilename);
-      if (hashExhibit) {
-        hashExhibit.randomOrder = -1;
-      }
-    }
+  if (initialSort) {
+    applySortFromHash(initialSort.field, initialSort.direction);
+  } else {
+    sortExhibits("random");
+  }
 
-    document.getElementById("exhibit-count").textContent =
-      `Exhibiting ${exhibits.length} pieces`;
+  if (initialFilename) {
+    openModalByFile(initialFilename);
+  }
+}
 
-    if (initialSort) {
-      applySortFromHash(initialSort.field, initialSort.direction);
-    } else {
-      sortExhibits("random");
-    }
-
-    if (initialFilename) {
-      openModalByFile(initialFilename);
-    }
-  });
+if (ALL_EXHIBITS) {
+  loadExhibits(ALL_EXHIBITS);
+} else {
+  fetch("exhibits.json")
+    .then((response) => response.json())
+    .then(loadExhibits);
+}
