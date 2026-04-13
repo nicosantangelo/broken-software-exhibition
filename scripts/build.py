@@ -52,29 +52,23 @@ def build():
     js = read("script.js")
     exhibits_json = json.dumps(json.loads(read("exhibits.json")), separators=(",", ":"))
 
-    html = re.sub(
-        r'<link rel="stylesheet" href="style\.css"\s*/?>',
+    html = html.replace(
+        '<link rel="stylesheet" href="style.css" />',
         f"<style>\n{minify_css(css)}</style>",
-        html,
     )
 
     # Inline exhibit data so the browser doesn't need to fetch exhibits.json.
     constants_script = (
         f"<script>\n"
-        f"const ALL_EXHIBITS = {exhibits_json.strip()};\n"
+        f"const ALL_EXHIBITS = {exhibits_json};\n"
         f'const BASE_PATH = ".";\n'
         f"</script>"
     )
-    html = re.sub(
-        r'<script src="constants\.js"></script>',
-        constants_script,
-        html,
-    )
+    html = html.replace('<script src="constants.js"></script>', constants_script)
 
-    html = re.sub(
-        r'<script src="script\.js"></script>',
+    html = html.replace(
+        '<script src="script.js"></script>',
         f"<script>\n{minify_js(js)}</script>",
-        html,
     )
 
     out = os.path.join(ROOT, "index.html")
