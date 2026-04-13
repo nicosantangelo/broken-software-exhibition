@@ -28,7 +28,7 @@ def minify_js(code):
     # Trim whitespace around braces, parens, semicolons, and commas.
     # Intentionally excludes operators like = + - < > that can appear
     # adjacent to identifiers or keywords.
-    code = re.sub(r'\s*([{}();,])\s*', r"\1", code)
+    code = re.sub(r'\s*([();,])\s*', r"\1", code)
 
     return code.strip()
 
