@@ -324,11 +324,18 @@ fetch("exhibits.json")
       });
     }
 
+    const initialHash = decodeURIComponent(window.location.hash.slice(1));
+    if (initialHash) {
+      const hashExhibit = exhibits.find((e) => e.file === initialHash);
+      if (hashExhibit) {
+        hashExhibit.randomOrder = -1;
+      }
+    }
+
     document.getElementById("exhibit-count").textContent =
       `Exhibiting ${exhibits.length} pieces`;
     sortExhibits("random");
 
-    const initialHash = decodeURIComponent(window.location.hash.slice(1));
     if (initialHash) {
       openModalByFile(initialHash);
     }
