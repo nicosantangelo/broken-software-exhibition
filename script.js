@@ -59,9 +59,6 @@ function sortExhibits(field, direction) {
 // Gallery rendering
 
 const PLAY_ICON = `<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>`;
-const IS_TOUCH_DEVICE = window.matchMedia(
-  "(hover: none) and (pointer: coarse)"
-).matches;
 
 function renderGallery() {
   const gallery = document.getElementById("gallery");
@@ -71,14 +68,16 @@ function renderGallery() {
     ? exhibits.filter((exhibit) => exhibit.starred)
     : exhibits;
 
-  for (const exhibit of visibleExhibits) {
+  for (let index = 0; index < visibleExhibits.length; index++) {
+    const exhibit = visibleExhibits[index];
     const card = document.createElement("div");
     card.className = "exhibit";
     const isVideo = exhibit.type === "video";
+    const loadingAttr = index < 6 ? 'fetchpriority="high"' : 'loading="lazy"';
 
     const mediaContent = isVideo
-      ? `<video src="${exhibit.video}" muted preload="metadata"></video>`
-      : `<img src="${exhibit.image}" alt="${exhibit.title}">`;
+      ? `<video src="${exhibit.video}" muted preload="none" poster="assets/posters/${exhibit.file.replace(/\.mp4$/, ".jpg")}"></video>`
+      : `<img src="${exhibit.thumb}" alt="${exhibit.title}" ${loadingAttr} decoding="async">`;
 
     const meta = [exhibit.author, exhibit.date].filter(Boolean).join(", ");
 
@@ -97,15 +96,9 @@ function renderGallery() {
       </div>
     `;
 
-    const exhibitIndex = visibleExhibits.indexOf(exhibit);
     card.querySelector(".exhibit-media").addEventListener("click", () => {
-      openModal(exhibitIndex);
+      openModal(index);
     });
-
-    if (isVideo && IS_TOUCH_DEVICE) {
-      const video = card.querySelector("video");
-      video.poster = `assets/posters/${exhibit.file.replace(/\.mp4$/, ".jpg")}`;
-    }
 
     gallery.appendChild(card);
   }
@@ -324,10 +317,12 @@ fetch("exhibits.json")
     for (const item of data) {
       const extension = item.file.split(".").pop().toLowerCase();
       const isVideo = ["mp4", "mov", "webm"].includes(extension);
+      const baseName = item.file.substring(0, item.file.lastIndexOf("."));
 
       exhibits.push({
         file: item.file,
         image: `assets/${item.file}`,
+        thumb: `assets/thumbs/${baseName}.jpg`,
         title: item.title || item.file,
         date: item.date || "",
         author: item.author || "",

@@ -4,16 +4,16 @@
   --color-bg: #0a0a0a;
   --color-white: #fff;
   --color-text: #e0e0e0;
-  --color-muted: #888;
-  --color-subtle: #666;
-  --color-dim: #555;
-  --color-faint: #444;
+  --color-muted: #aaa;
+  --color-subtle: #999;
+  --color-dim: #888;
+  --color-faint: #808080;
   --color-border: #222;
   --color-border-soft: #1a1a1a;
   --color-surface: #0f0f0f;
-  --color-hover: #aaa;
-  --color-active: #ddd;
-  --color-hover-link: #999;
+  --color-hover: #ccc;
+  --color-active: #eee;
+  --color-hover-link: #bbb;
 
   --font-size-meta: 0.75rem;
 
@@ -145,6 +145,10 @@ header h1 {
   flex-wrap: wrap;
   padding: 2rem 0 4rem;
   gap: 2.5rem;
+}
+
+.gallery:empty {
+  min-height: 100vh;
 }
 
 .exhibit {
@@ -336,7 +340,6 @@ footer {
 
 footer a {
   color: var(--color-subtle);
-  text-decoration: none;
 }
 
 footer a:hover {
