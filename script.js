@@ -4,6 +4,7 @@
 const exhibits = [];
 let showOnlyFavorites = false;
 let currentModalIndex = -1;
+let currentSort = { field: "random", direction: null };
 
 const MONTHS = {
   january: 0,
@@ -68,6 +69,8 @@ function renderGallery() {
     ? exhibits.filter((exhibit) => exhibit.starred)
     : exhibits;
 
+  const fragment = document.createDocumentFragment();
+
   for (let index = 0; index < visibleExhibits.length; index++) {
     const exhibit = visibleExhibits[index];
     const card = document.createElement("div");
@@ -100,8 +103,10 @@ function renderGallery() {
       openModal(index);
     });
 
-    gallery.appendChild(card);
+    fragment.appendChild(card);
   }
+
+  gallery.appendChild(fragment);
 }
 
 // ----------------------------------------
@@ -122,7 +127,83 @@ function replaceHash(filename) {
 }
 
 function clearHash() {
-  history.pushState(null, "", window.location.pathname);
+  const sortHash = buildSortHash();
+  if (sortHash) {
+    history.pushState(null, "", "#" + sortHash);
+  } else {
+    history.pushState(null, "", window.location.pathname);
+  }
+}
+
+const SORT_TOKENS = new Set([
+  "date-asc",
+  "date-desc",
+  "author-asc",
+  "author-desc",
+]);
+
+function parseHash(hash) {
+  if (!hash) {
+    return { sort: null, filename: null };
+  }
+
+  if (hash.includes(".")) {
+    return { sort: null, filename: hash };
+  }
+
+  if (SORT_TOKENS.has(hash)) {
+    const separatorIndex = hash.lastIndexOf("-");
+    return {
+      sort: {
+        field: hash.slice(0, separatorIndex),
+        direction: hash.slice(separatorIndex + 1),
+      },
+      filename: null,
+    };
+  }
+
+  return { sort: null, filename: null };
+}
+
+function buildSortHash() {
+  if (currentSort.field === "random") {
+    return "";
+  }
+
+  return currentSort.field + "-" + currentSort.direction;
+}
+
+function pushSortHash() {
+  const sortHash = buildSortHash();
+  if (sortHash) {
+    history.pushState(null, "", "#" + sortHash);
+  } else {
+    history.pushState(null, "", window.location.pathname);
+  }
+}
+
+function applySortFromHash(field, direction) {
+  for (const button of document.querySelectorAll(".sort-btn")) {
+    button.classList.remove("active");
+  }
+
+  const matchingButton = document.querySelector(
+    `.sort-btn[data-sort="${field}"]`,
+  );
+  if (matchingButton) {
+    matchingButton.classList.add("active");
+
+    if (field !== "random") {
+      matchingButton.dataset.dir = direction;
+
+      const arrow = direction === "asc" ? "↑" : "↓";
+      const label = field.charAt(0).toUpperCase() + field.slice(1);
+      matchingButton.textContent = `${arrow} ${label}`;
+    }
+  }
+
+  currentSort = { field, direction };
+  sortExhibits(field, direction);
 }
 
 function openModal(index) {
@@ -261,10 +342,21 @@ document.addEventListener("keydown", (event) => {
 
 window.addEventListener("popstate", () => {
   const hash = decodeURIComponent(window.location.hash.slice(1));
-  if (hash) {
-    openModalByFile(hash);
+  const { sort, filename } = parseHash(hash);
+
+  if (sort) {
+    if (sort.field !== currentSort.field || sort.direction !== currentSort.direction) {
+      applySortFromHash(sort.field, sort.direction);
+    }
+    silentCloseModal();
+  } else if (filename) {
+    openModalByFile(filename);
   } else {
     silentCloseModal();
+
+    if (currentSort.field !== "random") {
+      applySortFromHash("random", null);
+    }
   }
 });
 
@@ -287,7 +379,9 @@ for (const button of document.querySelectorAll(".sort-btn")) {
       const label = field.charAt(0).toUpperCase() + field.slice(1);
       button.textContent = `${arrow} ${label}`;
 
+      currentSort = { field, direction };
       sortExhibits(field, direction);
+      pushSortHash();
       return;
     }
 
@@ -296,7 +390,10 @@ for (const button of document.querySelectorAll(".sort-btn")) {
     }
     button.classList.add("active");
 
-    sortExhibits(field, button.dataset.dir);
+    const direction = button.dataset.dir || null;
+    currentSort = { field, direction };
+    sortExhibits(field, direction);
+    pushSortHash();
   });
 }
 
@@ -334,8 +431,10 @@ fetch("exhibits.json")
     }
 
     const initialHash = decodeURIComponent(window.location.hash.slice(1));
-    if (initialHash) {
-      const hashExhibit = exhibits.find((e) => e.file === initialHash);
+    const { sort: initialSort, filename: initialFilename } = parseHash(initialHash);
+
+    if (initialFilename) {
+      const hashExhibit = exhibits.find((e) => e.file === initialFilename);
       if (hashExhibit) {
         hashExhibit.randomOrder = -1;
       }
@@ -343,9 +442,14 @@ fetch("exhibits.json")
 
     document.getElementById("exhibit-count").textContent =
       `Exhibiting ${exhibits.length} pieces`;
-    sortExhibits("random");
 
-    if (initialHash) {
-      openModalByFile(initialHash);
+    if (initialSort) {
+      applySortFromHash(initialSort.field, initialSort.direction);
+    } else {
+      sortExhibits("random");
+    }
+
+    if (initialFilename) {
+      openModalByFile(initialFilename);
     }
   });
