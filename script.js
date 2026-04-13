@@ -4,6 +4,7 @@
 // State & constants
 
 const exhibits = [];
+const cardByExhibit = new Map();
 let showOnlyFavorites = false;
 let currentModalIndex = -1;
 let currentSort = { field: "random", direction: null };
@@ -61,59 +62,65 @@ function sortExhibits(field, direction) {
 
     return direction === "desc" ? -comparison : comparison;
   });
-
-  renderGallery();
 }
 
 // ----------------------------------------
 // Gallery rendering
 
+function getVisibleExhibits() {
+  return showOnlyFavorites
+    ? exhibits.filter((exhibit) => exhibit.starred)
+    : exhibits;
+}
+
 const PLAY_ICON = `<svg viewBox="0 0 24 24"><polygon points="6,3 20,12 6,21"/></svg>`;
+
+function createCard(exhibit, index) {
+  const isVideo = exhibit.type === "video";
+  const loadingAttr = index < 6 ? 'fetchpriority="high"' : 'loading="lazy"';
+  const baseName = exhibit.file.substring(0, exhibit.file.lastIndexOf("."));
+  const videoPath = resolvePath(`assets/posters/${baseName}.jpg`);
+
+  const mediaContent = isVideo
+    ? `<video src="${exhibit.video}" muted preload="none" poster="${videoPath}"></video>`
+    : `<img src="${exhibit.thumb}" alt="${exhibit.title}" ${loadingAttr} decoding="async">`;
+
+  const meta = [exhibit.author, exhibit.date].filter(Boolean).join(", ");
+
+  const card = document.createElement("div");
+  card.className = "exhibit";
+  card.innerHTML = `
+    <div class="exhibit-media${isVideo ? " is-video" : ""}">
+      ${mediaContent}
+      ${isVideo ? `<div class="play-button">${PLAY_ICON}</div>` : ""}
+    </div>
+    <div class="placard">
+      <div class="title-row">
+        <span class="title">${exhibit.title}</span>
+        ${exhibit.starred ? `<span class="star-icon">★</span>` : ""}
+      </div>
+      <div class="description">${exhibit.description}</div>
+      ${meta ? `<div class="meta">${meta}</div>` : ""}
+    </div>
+  `;
+
+  card.querySelector(".exhibit-media").addEventListener("click", () => {
+    const currentIndex = getVisibleExhibits().indexOf(exhibit);
+    if (currentIndex !== -1) {
+      openModal(currentIndex);
+    }
+  });
+
+  cardByExhibit.set(exhibit, card);
+}
 
 function renderGallery() {
   const gallery = document.getElementById("gallery");
   gallery.innerHTML = "";
 
-  const visibleExhibits = getVisibleExhibits();
-
   const fragment = document.createDocumentFragment();
-
-  for (let index = 0; index < visibleExhibits.length; index++) {
-    const exhibit = visibleExhibits[index];
-    const isVideo = exhibit.type === "video";
-    const loadingAttr = index < 6 ? 'fetchpriority="high"' : 'loading="lazy"';
-    const videoPath = resolvePath(
-      `assets/posters/${exhibit.file.replace(/\.mp4$/, ".jpg")}`,
-    );
-    const card = document.createElement("div");
-
-    const mediaContent = isVideo
-      ? `<video src="${exhibit.video}" muted preload="none" poster="${videoPath}"></video>`
-      : `<img src="${exhibit.thumb}" alt="${exhibit.title}" ${loadingAttr} decoding="async">`;
-
-    const meta = [exhibit.author, exhibit.date].filter(Boolean).join(", ");
-
-    card.className = "exhibit";
-    card.innerHTML = `
-      <div class="exhibit-media${isVideo ? " is-video" : ""}">
-        ${mediaContent}
-        ${isVideo ? `<div class="play-button">${PLAY_ICON}</div>` : ""}
-      </div>
-      <div class="placard">
-        <div class="title-row">
-          <span class="title">${exhibit.title}</span>
-          ${exhibit.starred ? `<span class="star-icon">★</span>` : ""}
-        </div>
-        <div class="description">${exhibit.description}</div>
-        ${meta ? `<div class="meta">${meta}</div>` : ""}
-      </div>
-    `;
-
-    card.querySelector(".exhibit-media").addEventListener("click", () => {
-      openModal(index);
-    });
-
-    fragment.appendChild(card);
+  for (const exhibit of getVisibleExhibits()) {
+    fragment.appendChild(cardByExhibit.get(exhibit));
   }
 
   gallery.appendChild(fragment);
@@ -121,12 +128,6 @@ function renderGallery() {
 
 // ----------------------------------------
 // Modal
-
-function getVisibleExhibits() {
-  return showOnlyFavorites
-    ? exhibits.filter((exhibit) => exhibit.starred)
-    : exhibits;
-}
 
 function updateHash(filename) {
   history.pushState(null, "", "#" + encodeURIComponent(filename));
@@ -183,15 +184,6 @@ function buildSortHash() {
   return currentSort.field + "-" + currentSort.direction;
 }
 
-function pushSortHash() {
-  const sortHash = buildSortHash();
-  if (sortHash) {
-    history.pushState(null, "", "#" + sortHash);
-  } else {
-    history.pushState(null, "", window.location.pathname);
-  }
-}
-
 function applySortFromHash(field, direction) {
   for (const button of document.querySelectorAll(".sort-btn")) {
     button.classList.remove("active");
@@ -214,6 +206,7 @@ function applySortFromHash(field, direction) {
 
   currentSort = { field, direction };
   sortExhibits(field, direction);
+  renderGallery();
 }
 
 function openModal(index) {
@@ -276,12 +269,11 @@ function silentCloseModal() {
   image.style.display = "none";
   modal.classList.remove("active");
 
-  const cards = document.getElementById("gallery").children;
-  if (currentModalIndex >= 0 && currentModalIndex < cards.length) {
-    cards[currentModalIndex].scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-    });
+  const visibleExhibits = getVisibleExhibits();
+  const exhibit = visibleExhibits[currentModalIndex];
+  const card = exhibit ? cardByExhibit.get(exhibit) : null;
+  if (card) {
+    card.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 }
 
@@ -381,33 +373,16 @@ for (const button of document.querySelectorAll(".sort-btn")) {
   button.addEventListener("click", () => {
     const field = button.dataset.sort;
 
-    if (button.classList.contains("active")) {
-      if (field === "random") {
-        return;
-      }
-
-      let direction = button.dataset.dir === "asc" ? "desc" : "asc";
-      button.dataset.dir = direction;
-
-      const arrow = direction === "asc" ? "↑" : "↓";
-      const label = field.charAt(0).toUpperCase() + field.slice(1);
-      button.textContent = `${arrow} ${label}`;
-
-      currentSort = { field, direction };
-      sortExhibits(field, direction);
-      pushSortHash();
+    if (button.classList.contains("active") && field === "random") {
       return;
     }
 
-    for (const sortButton of document.querySelectorAll(".sort-btn")) {
-      sortButton.classList.remove("active");
-    }
-    button.classList.add("active");
+    const direction = button.classList.contains("active")
+      ? button.dataset.dir === "asc" ? "desc" : "asc"
+      : button.dataset.dir || null;
 
-    const direction = button.dataset.dir || null;
-    currentSort = { field, direction };
-    sortExhibits(field, direction);
-    pushSortHash();
+    applySortFromHash(field, direction);
+    clearHash();
   });
 }
 
@@ -455,6 +430,10 @@ function loadExhibits(allExhibits) {
     }
   }
 
+  for (let i = 0; i < exhibits.length; i++) {
+    createCard(exhibits[i], i);
+  }
+
   document.getElementById("exhibit-count").textContent =
     `Exhibiting ${exhibits.length} pieces`;
 
@@ -462,6 +441,7 @@ function loadExhibits(allExhibits) {
     applySortFromHash(initialSort.field, initialSort.direction);
   } else {
     sortExhibits("random");
+    renderGallery();
   }
 
   if (initialFilename) {
