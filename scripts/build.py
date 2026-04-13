@@ -2,15 +2,13 @@
 """
 Build script that inlines CSS, JS, and exhibit data into index.html
 to eliminate render-blocking requests and the exhibits.json fetch.
-Outputs to dist/index.html.
+Overwrites index.html in place for GitHub Pages deployment.
 """
 
 import os
 import re
-import shutil
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DIST = os.path.join(ROOT, "dist")
 
 
 def read(filename):
@@ -59,12 +57,11 @@ def build():
         html,
     )
 
-    # Replace constants.js with inlined values: embed the JSON and
-    # point BASE_PATH up one level since dist/ is a subfolder.
+    # Inline exhibit data so the browser doesn't need to fetch exhibits.json.
     constants_script = (
         f"<script>\n"
         f"const ALL_EXHIBITS = {exhibits_json.strip()};\n"
-        f'const BASE_PATH = "..";\n'
+        f'const BASE_PATH = ".";\n'
         f"</script>"
     )
     html = re.sub(
@@ -79,12 +76,9 @@ def build():
         html,
     )
 
-    os.makedirs(DIST, exist_ok=True)
-    out = os.path.join(DIST, "index.html")
+    out = os.path.join(ROOT, "index.html")
     with open(out, "w") as f:
         f.write(html)
-
-    shutil.copy2(os.path.join(ROOT, "favicon.svg"), DIST)
 
     print(f"Built {out}")
 
